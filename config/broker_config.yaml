@@ -1,0 +1,68 @@
+# MetaTrader 5 Broker Configuration
+# ==================================
+
+# MT5 Connection Settings
+mt5:
+  # Connection Parameters
+  login: 210888620  # Your MT5 account number
+  password: "S@jasper&12345"
+  server: "Exness-MT5Trial9"  # Demo server (change for live)
+  path: ""  # Path to terminal64.exe (auto-detect if empty)
+  timeout: 10000
+  
+  # Trading Settings
+  trading:
+    magic_number: 234000  # Unique identifier for this EA
+    deviation: 10  # Maximum price deviation for orders
+    comment: "PPO_Agent"
+    
+  # Symbol Configuration
+  symbols:
+    - name: "XAUUSDm"
+      lot_size: 0.01
+      min_lot: 0.01
+      max_lot: 100.0
+      lot_step: 0.01
+      spread_limit: 30  # Maximum allowed spread in points
+      
+    - name: "EURUSDm"
+      lot_size: 0.01
+      min_lot: 0.01
+      max_lot: 100.0
+      lot_step: 0.01
+      spread_limit: 3
+      
+    - name: "GBPUSDm"
+      lot_size: 0.01
+      min_lot: 0.01
+      max_lot: 100.0
+      lot_step: 0.01
+      spread_limit: 5
+
+# Risk Management
+risk_management:
+  max_daily_loss: 1000.0  # Maximum daily loss in account currency
+  max_open_positions: 5
+  max_lot_size_per_trade: 0.1
+  equity_protection_percentage: 0.2  # Stop trading if equity falls 20%
+  
+# Market Hours (UTC)
+market_hours:
+  monday_start: "00:00"
+  friday_end: "23:59"
+  exclude_weekends: true
+  exclude_holidays: true
+  
+# Data Feed Settings
+data_feed:
+  timeframes:
+    - "M1"   # 1 minute
+    - "M5"   # 5 minutes
+    - "M15"  # 15 minutes
+    - "M30"  # 30 minutes
+    - "H1"   # 1 hour
+    - "H4"   # 4 hours
+    - "D1"   # Daily
+  
+  buffer_size: 1000  # Number of bars to keep in buffer
+  update_frequency: 1  # Seconds between data updates

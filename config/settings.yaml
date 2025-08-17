@@ -1,0 +1,70 @@
+# PPO Trading System Configuration
+# =================================
+
+# Application Settings
+app:
+  name: "PPO Trading System"
+  version: "1.0.0"
+  debug: false
+  log_level: "INFO"
+  timezone: "UTC"
+
+# Database Configuration
+database:
+  # PostgreSQL (Primary Database)
+  postgres:
+    host: "switchyard.proxy.rlwy.net"
+    port: 57875
+    database: "railway"
+    username: "postgres"
+    password: "bkXUmGqeEzNbTzkOXnPrunyJVxsskfdl"
+    pool_size: 10
+    max_overflow: 20
+  
+  # Redis (Cache & Session Storage)
+  redis:
+    host: "tramway.proxy.rlwy.net"
+    port: 38321
+    db: 0
+    password: "YBNVikuBTNiWRgqtezVzVESRsljfnGgZ"
+    expire_time: 3600
+
+# WebSocket Configuration
+websocket:
+  host: "0.0.0.0"
+  port: 8080
+  cors_allowed_origins: ["*", "http://localhost:5173"]
+  ping_interval: 25
+  ping_timeout: 60
+  max_connections: 1000
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  title: "PPO Trading API"
+  description: "RESTful API for PPO Trading System"
+  version: "1.0.0"
+  
+# File Storage
+storage:
+  data_path: "./data"
+  models_path: "./models/saved_models"
+  logs_path: "./logs"
+  backup_enabled: true
+  backup_interval_hours: 24
+
+# Performance Monitoring
+monitoring:
+  metrics_enabled: true
+  performance_tracking: true
+  alert_thresholds:
+    max_drawdown: 0.15
+    min_sharpe_ratio: 1.0
+    max_consecutive_losses: 5
+
+# Security
+security:
+  api_key_required: false
+  rate_limiting: true
+  max_requests_per_minute: 100

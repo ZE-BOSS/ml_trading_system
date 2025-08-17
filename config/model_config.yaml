@@ -1,0 +1,148 @@
+# PPO Model Configuration
+# ========================
+
+# PPO Algorithm Parameters
+ppo:
+  # Core PPO Settings
+  learning_rate: 0.0003
+  n_steps: 2048
+  batch_size: 64
+  n_epochs: 10
+  gamma: 0.99  # Discount factor
+  gae_lambda: 0.95  # GAE parameter
+  clip_range: 0.2
+  clip_range_vf: null
+  normalize_advantage: true
+  ent_coef: 0.0  # Entropy coefficient
+  vf_coef: 0.5  # Value function coefficient
+  max_grad_norm: 0.5
+  
+  # Network Architecture
+  policy_kwargs:
+    net_arch: [256, 256]  # Hidden layers for both actor and critic
+    activation_fn: "relu"
+    ortho_init: true
+    
+# Training Configuration
+training:
+  total_timesteps: 1000000
+  eval_freq: 10000
+  n_eval_episodes: 10
+  save_freq: 50000
+  
+  # Early Stopping
+  early_stopping:
+    enabled: true
+    patience: 20
+    min_improvement: 0.01
+    
+  # Curriculum Learning
+  curriculum:
+    enabled: false
+    stages:
+      - timesteps: 200000
+        difficulty: "easy"
+      - timesteps: 500000
+        difficulty: "medium"
+      - timesteps: 1000000
+        difficulty: "hard"
+
+# Environment Configuration
+environment:
+  # State Space (Features)
+  features:
+    price_features:
+      - "open"
+      - "high" 
+      - "low"
+      - "close"
+      - "volume"
+    
+    technical_indicators:
+      - "sma_5"
+      - "sma_20"
+      - "sma_50"
+      - "ema_12"
+      - "ema_26"
+      - "rsi_14"
+      - "macd"
+      - "macd_signal"
+      - "bb_upper"
+      - "bb_lower"
+      - "atr_14"
+    
+    time_features:
+      - "hour_of_day"
+      - "day_of_week"
+      - "is_weekend"
+    
+  lookback_window: 100  # Number of previous timesteps to include
+  
+  # Action Space
+  action_space:
+    type: "discrete"  # "discrete" or "continuous"
+    actions:
+      - "hold"
+      - "buy"
+      - "sell"
+    # For continuous: action bounds
+    continuous_bounds:
+      position_size: [-1.0, 1.0]  # -1 = full short, +1 = full long
+      
+  # Reward Function
+  reward_function:
+    type: "profit_based"  # "profit_based", "sharpe_based", "custom"
+    parameters:
+      profit_weight: 1.0
+      penalty_weight: 0.1
+      drawdown_penalty: 2.0
+      transaction_cost: 0.0001  # 0.01%
+      risk_free_rate: 0.02  # 2% annual
+      
+    # Custom reward components
+    custom_rewards:
+      trend_following: 0.1
+      mean_reversion: 0.05
+      volatility_targeting: 0.05
+
+# Backtesting Configuration
+backtesting:
+  initial_balance: 10000.0
+  transaction_costs:
+    commission: 0.0001  # 0.01% per trade
+    spread: 0.00005     # 0.005% spread
+  
+  # Position Sizing
+  position_sizing:
+    method: "fixed_fraction"  # "fixed", "fixed_fraction", "kelly", "volatility_target"
+    fraction: 0.02  # 2% of equity per trade
+    max_position: 0.1  # Maximum 10% of equity
+    
+  # Risk Management
+  risk_management:
+    stop_loss: 0.02  # 2% stop loss
+    take_profit: 0.04  # 4% take profit
+    trailing_stop: false
+    max_drawdown_stop: 0.15  # Stop trading at 15% drawdown
+
+# Model Validation
+validation:
+  cross_validation:
+    enabled: true
+    n_splits: 5
+    test_size: 0.2
+    
+  walk_forward_analysis:
+    enabled: true
+    train_period: 252  # Days
+    test_period: 63   # Days
+    step_size: 21     # Days
+    
+  performance_metrics:
+    - "total_return"
+    - "sharpe_ratio" 
+    - "max_drawdown"
+    - "win_rate"
+    - "profit_factor"
+    - "calmar_ratio"
+    - "sortino_ratio"
