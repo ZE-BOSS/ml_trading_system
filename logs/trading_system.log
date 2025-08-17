@@ -686,3 +686,16 @@
 2025-08-17 15:53:27 | INFO     | models.ppo_agent:_on_rollout_end:117 - New best model saved with portfolio value: 10987.40
 2025-08-17 15:53:53 | INFO     | models.ppo_agent:_on_rollout_end:117 - New best model saved with portfolio value: 11002.01
 2025-08-17 15:55:10 | INFO     | models.ppo_agent:_on_rollout_end:117 - New best model saved with portfolio value: 11021.00
+2025-08-17 18:12:25 | INFO     | models.ppo_agent:_on_rollout_end:117 - New best model saved with portfolio value: 11087.25
+2025-08-17 18:16:05 | INFO     | models.ppo_agent:_on_rollout_end:117 - New best model saved with portfolio value: 11231.39
+2025-08-17 22:01:42 | INFO     | models.ppo_agent:_on_rollout_end:117 - New best model saved with portfolio value: 11235.63
+2025-08-17 22:39:25 | INFO     | models.ppo_agent:train:304 - Saved VecNormalize stats to ./models/saved_models\vecnormalize.pkl
+2025-08-17 22:39:25 | INFO     | models.ppo_agent:train:308 - Training completed. Model saved to ./models/saved_models/ppo_final_8e5c78b0-5fad-48dc-bebc-95f5162947ec.zip
+2025-08-17 22:39:25 | ERROR    | backend.data_manager:save_training_session:300 - Error saving training session: connection was closed in the middle of operation
+2025-08-17 22:39:25 | INFO     | services.websocket_server:disconnect:160 - Client disconnected: 418eefac-143c-4b2f-a4be-a965779ef5da (SID: n0Fl7ZSBdjsTlQY8AAAB)
+2025-08-17 22:39:31 | INFO     | __main__:run_training:236 - Training completed for XAUUSDm: {'success': True, 'model_path': './models/saved_models/ppo_final_8e5c78b0-5fad-48dc-bebc-95f5162947ec.zip', 'total_timesteps': 1000000, 'best_model_path': 'C:\\Users\\ikchr\\AppData\\Local\\Temp\\SB3-2025-08-17-15-34-28-456729\\best_model', 'final_performance': {'mean_reward': np.float64(11235.634544735392), 'total_episodes': 0}}
+2025-08-17 22:39:31 | INFO     | __main__:shutdown:440 - Shutting down PPO Trading System...
+2025-08-17 22:39:31 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-17 22:39:31 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-17 22:39:31 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-17 22:39:31 | INFO     | __main__:shutdown:457 - System shutdown completed
