@@ -214,12 +214,11 @@ class StateFeatureExtractor:
         # Add derived features
         derived_features = ['price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
         
-        # Add cyclical time features
-        cyclical_features = ['hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
+        # Do NOT add cyclical_features manually, they are already created in _add_time_features
+        all_features = (price_features + technical_indicators + time_features + derived_features)
         
-        # Combine all feature lists
-        all_features = (price_features + technical_indicators + time_features + 
-                       derived_features + cyclical_features)
+        # Deduplicate while preserving order
+        all_features = list(dict.fromkeys(all_features))
         
         # Select only existing features
         existing_features = [f for f in all_features if f in data.columns]

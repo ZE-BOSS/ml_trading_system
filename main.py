@@ -22,6 +22,9 @@ import signal
 import logging
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
+from envs.trading_env import TradingEnvironment
+from stable_baselines3.common.monitor import Monitor
+from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
 import yaml
 import uuid
 from loguru import logger
@@ -152,6 +155,44 @@ class PPOTradingSystem:
             logger.error(f"System initialization failed: {e}")
             return False
     
+    
+    def _normalize_ohlcv(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Ensure dataframe has lowercase OHLCV columns expected by the env."""
+        if df is None or df.empty:
+            return pd.DataFrame()
+
+        rename_map = {
+            'Open': 'open', 'High': 'high', 'Low': 'low', 'Close': 'close',
+            'Adj Close': 'close',  # if coming from yfinance/others
+            'Volume': 'volume', 'TickVolume': 'volume', 'tick_volume': 'volume',
+            'BidOpen': 'open', 'BidHigh': 'high', 'BidLow': 'low', 'BidClose': 'close'
+        }
+        df = df.rename(columns={k: v for k, v in rename_map.items() if k in df.columns})
+
+        # If index is a column named 'time' or 'datetime', set it as index
+        for tcol in ('time', 'datetime', 'date'):
+            if tcol in df.columns:
+                try:
+                    df[tcol] = pd.to_datetime(df[tcol])
+                    df = df.set_index(tcol)
+                except Exception:
+                    pass
+                break
+
+        # Sort and drop duplicates by index if index is datetime-like
+        if isinstance(df.index, pd.DatetimeIndex):
+            df = df.sort_index()
+            df = df[~df.index.duplicated(keep='last')]
+
+        required = ['open', 'high', 'low', 'close', 'volume']
+        missing = [c for c in required if c not in df.columns]
+        if missing:
+            raise ValueError(f"Data must contain columns: {required}")
+
+        # Return only required columns to keep env happy
+        return df[required]
+    
+
     async def run_training(self, 
                           symbol: str,
                           start_date: Optional[str] = None,
@@ -272,10 +313,6 @@ class PPOTradingSystem:
         self.current_session_id = str(uuid.uuid4())
         
         try:
-            # Load model
-            if not self.ppo_agent.load_model(model_path):
-                raise ValueError(f"Failed to load model from {model_path}")
-            
             # Get backtest data
             if start_date and end_date:
                 start_dt = datetime.fromisoformat(start_date)
@@ -286,6 +323,14 @@ class PPOTradingSystem:
                 start_dt = end_dt - timedelta(days=180)
             
             backtest_data = await self._get_or_download_data(symbol, start_dt, end_dt)
+
+            env = TradingEnvironment(data=backtest_data, config_path="config/model_config.yaml")
+            env = Monitor(env)
+            env = DummyVecEnv([lambda: env])
+
+            # Load model
+            if not self.ppo_agent.load_model(model_path, env):
+                raise ValueError(f"Failed to load model from {model_path}")
             
             # Run backtest
             results = await self.backtest_runner.run_backtest(

@@ -25,7 +25,7 @@ ppo:
     
 # Training Configuration
 training:
-  total_timesteps: 1000000
+  total_timesteps: 10000
   eval_freq: 10000
   n_eval_episodes: 10
   save_freq: 50000
@@ -49,15 +49,14 @@ training:
 
 # Environment Configuration
 environment:
-  # State Space (Features)
+  lookback_window: 100
   features:
     price_features:
       - "open"
-      - "high" 
+      - "high"
       - "low"
       - "close"
       - "volume"
-    
     technical_indicators:
       - "sma_5"
       - "sma_20"
@@ -70,14 +69,15 @@ environment:
       - "bb_upper"
       - "bb_lower"
       - "atr_14"
-    
     time_features:
       - "hour_of_day"
       - "day_of_week"
       - "is_weekend"
-    
-  lookback_window: 100  # Number of previous timesteps to include
-  
+      - "hour_sin"
+      - "hour_cos"
+      - "dow_sin"
+      - "dow_cos"
+
   # Action Space
   action_space:
     type: "discrete"  # "discrete" or "continuous"
@@ -104,6 +104,41 @@ environment:
       trend_following: 0.1
       mean_reversion: 0.05
       volatility_targeting: 0.05
+
+  signature:
+    lookback_window: 100
+    n_features: 28
+    obs_dim: 2805
+    portfolio_features_dim: 5
+    feature_names:
+      - "open"
+      - "high"
+      - "low"
+      - "close"
+      - "volume"
+      - "sma_5"
+      - "sma_20"
+      - "sma_50"
+      - "ema_12"
+      - "ema_26"
+      - "rsi_14"
+      - "macd"
+      - "macd_signal"
+      - "bb_upper"
+      - "bb_lower"
+      - "atr_14"
+      - "hour_of_day"
+      - "day_of_week"
+      - "is_weekend"
+      - "price_change"
+      - "high_low_ratio"
+      - "volume_ratio"
+      - "volatility"
+      - "price_position"
+      - "hour_sin"
+      - "hour_cos"
+      - "dow_sin"
+      - "dow_cos"
 
 # Backtesting Configuration
 backtesting:

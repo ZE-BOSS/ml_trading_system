@@ -1,0 +1,1200 @@
+2025-08-18 01:56:14 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 01:56:14 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 01:56:17 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 01:56:18 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 01:56:21 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 01:56:21 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 01:56:22 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 01:56:23 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 01:56:23 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 01:56:23 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 01:56:23 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 01:56:23 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 01:56:23 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 01:56:23 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 01:56:23 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 01:56:23 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 01:56:23 | INFO     | __main__:start_websocket_server:409 - WebSocket server started
+2025-08-18 01:56:23 | INFO     | __main__:run_backtest:306 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 01:56:23 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 01:56:23 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 01:56:23 | ERROR    | __main__:run_backtest:338 - Backtest failed: Data must contain columns: ['open', 'high', 'low', 'close', 'volume']
+2025-08-18 01:56:23 | INFO     | __main__:shutdown:480 - Shutting down PPO Trading System...
+2025-08-18 01:56:23 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 01:56:23 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 01:56:23 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 01:56:23 | INFO     | __main__:shutdown:497 - System shutdown completed
+2025-08-18 02:09:33 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 02:09:33 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 02:09:35 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 02:09:37 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 02:09:39 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 02:09:39 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 02:09:41 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 02:09:41 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:09:41 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 02:09:41 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:09:41 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:09:41 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:09:41 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:09:41 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:09:41 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:09:41 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 02:09:41 | INFO     | __main__:start_websocket_server:409 - WebSocket server started
+2025-08-18 02:09:41 | INFO     | __main__:run_backtest:306 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 02:09:41 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:09:41 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 02:09:41 | ERROR    | __main__:run_backtest:338 - Backtest failed: cannot access local variable 'df' where it is not associated with a value
+2025-08-18 02:09:41 | INFO     | __main__:shutdown:480 - Shutting down PPO Trading System...
+2025-08-18 02:09:41 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 02:09:41 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 02:09:41 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 02:09:41 | INFO     | __main__:shutdown:497 - System shutdown completed
+2025-08-18 02:12:30 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 02:12:30 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 02:12:33 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 02:12:34 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 02:12:38 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 02:12:38 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 02:12:39 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 02:12:39 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:12:39 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 02:12:39 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:12:39 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:12:39 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:12:39 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:12:39 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:12:39 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:12:39 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 02:12:39 | INFO     | __main__:start_websocket_server:409 - WebSocket server started
+2025-08-18 02:12:39 | INFO     | __main__:run_backtest:306 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 02:12:39 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:12:39 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 02:12:39 | ERROR    | __main__:run_backtest:338 - Backtest failed: Data must contain columns: ['open', 'high', 'low', 'close', 'volume']
+2025-08-18 02:12:39 | INFO     | __main__:shutdown:480 - Shutting down PPO Trading System...
+2025-08-18 02:12:39 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 02:12:39 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 02:12:39 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 02:12:39 | INFO     | __main__:shutdown:497 - System shutdown completed
+2025-08-18 02:17:26 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 02:17:26 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 02:17:47 | ERROR    | backend.data_manager:_connect_postgres:96 - Failed to connect to PostgreSQL: [WinError 121] The semaphore timeout period has expired
+2025-08-18 02:17:49 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 02:17:49 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 02:17:51 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 02:17:51 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:17:51 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 02:17:51 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:17:51 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:17:51 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:17:51 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:17:51 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:17:51 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:17:51 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 02:17:51 | INFO     | __main__:start_websocket_server:409 - WebSocket server started
+2025-08-18 02:17:51 | INFO     | __main__:run_backtest:306 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 02:17:51 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:17:51 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 02:17:51 | ERROR    | __main__:run_backtest:338 - Backtest failed: Data must contain columns: ['open', 'high', 'low', 'close', 'volume']
+2025-08-18 02:17:51 | INFO     | __main__:shutdown:480 - Shutting down PPO Trading System...
+2025-08-18 02:17:51 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 02:17:51 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 02:17:51 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 02:17:51 | INFO     | __main__:shutdown:497 - System shutdown completed
+2025-08-18 02:36:23 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 02:36:23 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 02:37:16 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 02:37:18 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 02:37:21 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 02:37:21 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 02:37:22 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 02:37:22 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:37:23 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 02:37:23 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:37:23 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:37:23 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:37:23 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:37:23 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:37:23 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:37:23 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 02:37:23 | INFO     | __main__:start_websocket_server:373 - WebSocket server started
+2025-08-18 02:37:23 | INFO     | __main__:run_backtest:270 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 02:37:23 | WARNING  | backend.data_manager:get_historical_data:538 - No cached data found for XAUUSDm:H1
+2025-08-18 02:37:23 | INFO     | __main__:_get_or_download_data:393 - Cache Data: Empty DataFrame
+Columns: []
+Index: []
+2025-08-18 02:37:23 | INFO     | services.mt5_client:connect:150 - Connected to MT5: Account 210888620, Balance: 99.6, Server: Exness-MT5Trial9
+2025-08-18 02:37:24 | INFO     | services.mt5_client:get_historical_data:231 - Retrieved 2910 bars for XAUUSDm (H1)
+2025-08-18 02:37:24 | INFO     | __main__:_get_or_download_data:417 - MT5 Data:                          open      high       low     close  volume  spread  real_volume
+time                                                                                    
+2025-02-19 02:00:00  2938.487  2939.653  2924.058  2929.227   10271     159            0
+2025-02-19 03:00:00  2929.254  2930.470  2924.907  2928.825    7396     159            0
+2025-02-19 04:00:00  2928.828  2929.567  2926.487  2929.263    4808     159            0
+2025-02-19 05:00:00  2929.260  2934.433  2928.003  2932.801    6146     159            0
+2025-02-19 06:00:00  2932.775  2935.872  2930.748  2931.728    6106     160            0
+...                       ...       ...       ...       ...     ...     ...          ...
+2025-08-15 17:00:00  3338.202  3338.931  3335.102  3336.062    4743     160            0
+2025-08-15 18:00:00  3336.066  3338.222  3334.687  3336.051    4070     160            0
+2025-08-15 19:00:00  3336.028  3339.620  3334.387  3339.143    4434     160            0
+2025-08-15 20:00:00  3339.146  3339.435  3335.141  3335.213    3321     160            0
+2025-08-18 01:00:00  3343.143  3343.143  3343.143  3343.143       1     160            0
+
+[2910 rows x 7 columns]
+2025-08-18 02:37:24 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 02:37:24 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 02:37:25 | INFO     | backend.data_manager:save_historical_data:500 - Cached historical data for XAUUSDm (2910 rows)
+2025-08-18 02:37:25 | INFO     | __main__:_get_or_download_data:422 - Downloaded and cached data for XAUUSDm: 2910 samples
+2025-08-18 02:37:25 | ERROR    | __main__:run_backtest:302 - Backtest failed: PPOTradingAgent.load_model() missing 1 required positional argument: 'path'
+2025-08-18 02:37:25 | INFO     | __main__:shutdown:443 - Shutting down PPO Trading System...
+2025-08-18 02:37:25 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 02:37:25 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 02:37:25 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 02:37:25 | INFO     | __main__:shutdown:460 - System shutdown completed
+2025-08-18 02:44:31 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 02:44:31 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 02:44:45 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 02:44:46 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 02:44:49 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 02:44:49 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 02:44:51 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 02:44:51 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:44:51 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 02:44:51 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:44:51 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:44:51 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:44:51 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:44:51 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:44:51 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:44:51 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 02:44:51 | INFO     | __main__:start_websocket_server:373 - WebSocket server started
+2025-08-18 02:44:51 | INFO     | __main__:run_backtest:270 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 02:44:51 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:44:51 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 02:44:51 | ERROR    | __main__:run_backtest:302 - Backtest failed: Data must contain columns: ['open', 'high', 'low', 'close', 'volume']
+2025-08-18 02:44:51 | INFO     | __main__:shutdown:443 - Shutting down PPO Trading System...
+2025-08-18 02:44:51 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 02:44:51 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 02:44:51 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 02:44:51 | INFO     | __main__:shutdown:460 - System shutdown completed
+2025-08-18 02:48:23 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 02:48:23 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 02:49:23 | ERROR    | backend.data_manager:_connect_postgres:96 - Failed to connect to PostgreSQL: 
+2025-08-18 02:49:28 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 02:49:28 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 02:49:36 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 02:49:36 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:49:36 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 02:49:36 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:49:36 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:49:36 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:49:36 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:49:36 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:49:36 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:49:36 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 02:49:36 | INFO     | __main__:start_websocket_server:373 - WebSocket server started
+2025-08-18 02:49:36 | INFO     | __main__:run_backtest:270 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 02:49:36 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:49:36 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 02:49:36 | ERROR    | __main__:run_backtest:302 - Backtest failed: 'TradingEnvironment' object has no attribute 'processed_data'
+2025-08-18 02:49:36 | INFO     | __main__:shutdown:443 - Shutting down PPO Trading System...
+2025-08-18 02:49:36 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 02:49:36 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 02:49:36 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 02:49:36 | INFO     | __main__:shutdown:460 - System shutdown completed
+2025-08-18 02:55:40 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 02:55:40 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 02:56:01 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 02:56:13 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 02:56:18 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 02:56:18 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 02:57:02 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 02:57:02 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:57:02 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 02:57:02 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:57:02 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:57:02 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:57:03 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 02:57:03 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:57:03 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 02:57:03 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 02:57:03 | INFO     | __main__:start_websocket_server:373 - WebSocket server started
+2025-08-18 02:57:03 | INFO     | __main__:run_backtest:270 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 02:57:03 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 02:57:03 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 02:57:03 | ERROR    | __main__:run_backtest:302 - Backtest failed: Data must contain columns: ['open', 'high', 'low', 'close', 'volume']
+2025-08-18 02:57:03 | INFO     | __main__:shutdown:443 - Shutting down PPO Trading System...
+2025-08-18 02:57:03 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 02:57:03 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 02:57:04 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 02:57:04 | INFO     | __main__:shutdown:460 - System shutdown completed
+2025-08-18 03:02:21 | INFO     | __main__:__init__:80 - PPO Trading System initialized
+2025-08-18 03:02:21 | INFO     | __main__:initialize:115 - Initializing PPO Trading System...
+2025-08-18 03:02:23 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 03:02:24 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 03:02:27 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 03:02:27 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 03:02:29 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 03:02:29 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:02:29 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 03:02:29 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:02:29 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:02:29 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 03:02:29 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:02:29 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:02:29 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 03:02:29 | INFO     | __main__:initialize:148 - System initialization completed successfully
+2025-08-18 03:02:29 | INFO     | __main__:start_websocket_server:373 - WebSocket server started
+2025-08-18 03:02:29 | INFO     | __main__:run_backtest:270 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 03:02:29 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:02:29 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 03:02:29 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 03:02:29 | WARNING  | envs.state_features:_add_technical_indicators:116 - Failed to calculate indicator macd: 'NoneType' object is not subscriptable
+2025-08-18 03:02:29 | WARNING  | envs.state_features:_add_technical_indicators:116 - Failed to calculate indicator bb_upper: 'NoneType' object is not subscriptable
+2025-08-18 03:02:29 | WARNING  | envs.state_features:_add_technical_indicators:116 - Failed to calculate indicator bb_lower: 'NoneType' object is not subscriptable
+2025-08-18 03:02:29 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 03:02:29 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 5 features
+2025-08-18 03:02:29 | INFO     | envs.state_features:_select_features:231 - Selected 17 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 03:02:29 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (1, 17)
+2025-08-18 03:02:29 | ERROR    | __main__:run_backtest:302 - Backtest failed: Insufficient data: need at least 100 samples
+2025-08-18 03:02:29 | INFO     | __main__:shutdown:443 - Shutting down PPO Trading System...
+2025-08-18 03:02:29 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 03:02:29 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 03:02:29 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 03:02:29 | INFO     | __main__:shutdown:460 - System shutdown completed
+2025-08-18 03:19:25 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 03:19:25 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 03:19:28 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 03:19:29 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 03:19:32 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 03:19:32 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 03:19:33 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 03:19:33 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:19:33 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 03:19:33 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:19:33 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:19:33 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 03:19:33 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:19:33 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:19:33 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 03:19:33 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 03:19:33 | INFO     | __main__:start_websocket_server:381 - WebSocket server started
+2025-08-18 03:19:33 | INFO     | __main__:run_backtest:273 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 03:19:35 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2910 rows from cache for XAUUSDm
+2025-08-18 03:19:35 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:19:35 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 03:19:35 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 03:19:35 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 03:19:35 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 03:19:35 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 03:19:35 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2910, 21)
+2025-08-18 03:19:35 | INFO     | envs.trading_env:_prepare_data:100 - Data prepared: 2860 samples, 21 features
+2025-08-18 03:19:35 | INFO     | envs.trading_env:_setup_spaces:127 - Action space: Discrete(3)
+2025-08-18 03:19:35 | INFO     | envs.trading_env:_setup_spaces:128 - Observation space: (2105,)
+2025-08-18 03:19:35 | INFO     | envs.trading_env:__init__:82 - Trading environment initialized with 2910 data points
+2025-08-18 03:19:35 | ERROR    | __main__:run_backtest:310 - Backtest failed: Environment with real data must be provided when using VecNormalize.
+2025-08-18 03:19:35 | INFO     | __main__:shutdown:451 - Shutting down PPO Trading System...
+2025-08-18 03:19:35 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 03:19:35 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 03:19:35 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 03:19:35 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 03:19:35 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 03:19:35 | INFO     | __main__:shutdown:468 - System shutdown completed
+2025-08-18 03:22:40 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 03:22:40 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 03:22:42 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 03:22:44 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 03:22:47 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 03:22:47 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 03:22:48 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 03:22:48 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:22:48 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 03:22:48 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:22:48 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:22:48 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 03:22:48 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:22:48 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:22:48 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 03:22:48 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 03:22:48 | INFO     | __main__:start_websocket_server:381 - WebSocket server started
+2025-08-18 03:22:48 | INFO     | __main__:run_backtest:273 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 03:22:50 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2910 rows from cache for XAUUSDm
+2025-08-18 03:22:50 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:22:50 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 03:22:50 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 03:22:50 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 03:22:50 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 03:22:50 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 03:22:50 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2910, 21)
+2025-08-18 03:22:50 | INFO     | envs.trading_env:_prepare_data:100 - Data prepared: 2860 samples, 21 features
+2025-08-18 03:22:50 | INFO     | envs.trading_env:_setup_spaces:127 - Action space: Discrete(3)
+2025-08-18 03:22:50 | INFO     | envs.trading_env:_setup_spaces:128 - Observation space: (2105,)
+2025-08-18 03:22:50 | INFO     | envs.trading_env:__init__:82 - Trading environment initialized with 2910 data points
+2025-08-18 03:22:50 | INFO     | models.ppo_agent:load_model:408 - Loaded VecNormalize stats from models/saved_models\vecnormalize.pkl
+2025-08-18 03:22:58 | ERROR    | __main__:run_backtest:310 - Backtest failed: Error(s) in loading state_dict for ActorCriticPolicy:
+	size mismatch for mlp_extractor.policy_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.policy_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.policy_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.policy_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.value_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.value_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for action_net.weight: copying a param with shape torch.Size([3, 256]) from checkpoint, the shape in current model is torch.Size([3, 64]).
+	size mismatch for value_net.weight: copying a param with shape torch.Size([1, 256]) from checkpoint, the shape in current model is torch.Size([1, 64]).
+2025-08-18 03:22:58 | INFO     | __main__:shutdown:451 - Shutting down PPO Trading System...
+2025-08-18 03:22:58 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 03:22:58 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 03:22:58 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 03:22:58 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 03:22:59 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 03:22:59 | INFO     | __main__:shutdown:468 - System shutdown completed
+2025-08-18 03:41:54 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 03:41:54 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 03:42:17 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 03:42:22 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 03:43:04 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 03:43:04 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 03:43:05 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 03:43:05 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:43:05 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 03:43:05 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:43:05 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:43:05 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 03:43:05 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 03:43:05 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:43:05 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 03:43:05 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 03:43:05 | INFO     | __main__:start_websocket_server:381 - WebSocket server started
+2025-08-18 03:43:05 | INFO     | __main__:run_backtest:273 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 03:43:06 | WARNING  | backend.data_manager:get_historical_data:538 - No cached data found for XAUUSDm:H1
+2025-08-18 03:43:06 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 03:43:06 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 03:43:06 | ERROR    | __main__:run_backtest:310 - Backtest failed: Data must contain columns: ['open', 'high', 'low', 'close', 'volume']
+2025-08-18 03:43:06 | INFO     | __main__:shutdown:451 - Shutting down PPO Trading System...
+2025-08-18 03:43:06 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 03:43:06 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 03:43:06 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 03:43:06 | INFO     | __main__:shutdown:468 - System shutdown completed
+2025-08-18 04:03:06 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 04:03:06 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 04:03:09 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 04:03:11 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 04:03:14 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 04:03:14 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 04:03:16 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 04:03:16 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 04:03:16 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 04:03:16 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 04:03:16 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 04:03:16 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 04:03:16 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 04:03:16 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 04:03:16 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 04:03:16 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 04:03:16 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 04:03:16 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 04:03:16 | WARNING  | backend.data_manager:get_historical_data:538 - No cached data found for XAUUSDm:H1
+2025-08-18 04:03:16 | INFO     | __main__:_get_or_download_data:438 - Cache Data: Empty DataFrame
+Columns: []
+Index: []
+2025-08-18 04:03:18 | INFO     | services.mt5_client:connect:150 - Connected to MT5: Account 210888620, Balance: 99.6, Server: Exness-MT5Trial9
+2025-08-18 04:03:19 | INFO     | services.mt5_client:get_historical_data:231 - Retrieved 2912 bars for XAUUSDm (H1)
+2025-08-18 04:03:19 | INFO     | __main__:_get_or_download_data:462 - MT5 Data:                          open      high       low     close  volume  spread  real_volume
+time                                                                                    
+2025-02-19 04:00:00  2928.828  2929.567  2926.487  2929.263    4808     159            0
+2025-02-19 05:00:00  2929.260  2934.433  2928.003  2932.801    6146     159            0
+2025-02-19 06:00:00  2932.775  2935.872  2930.748  2931.728    6106     160            0
+2025-02-19 07:00:00  2931.683  2935.870  2930.440  2934.250    7926     159            0
+2025-02-19 08:00:00  2934.210  2940.040  2933.718  2938.602    9550     159            0
+...                       ...       ...       ...       ...     ...     ...          ...
+2025-08-17 22:00:00  3334.569  3335.381  3332.964  3334.405    3364     160            0
+2025-08-17 23:00:00  3334.369  3334.469  3323.503  3327.097    6672     160            0
+2025-08-18 00:00:00  3327.080  3342.861  3326.727  3340.615    8954     160            0
+2025-08-18 01:00:00  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2025-08-18 02:00:00  3346.864  3347.543  3344.912  3345.838     748     160            0
+
+[2912 rows x 7 columns]
+2025-08-18 04:03:19 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 04:03:19 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 04:03:20 | INFO     | backend.data_manager:save_historical_data:500 - Cached historical data for XAUUSDm (2912 rows)
+2025-08-18 04:03:20 | INFO     | __main__:_get_or_download_data:467 - Downloaded and cached data for XAUUSDm: 2912 samples
+2025-08-18 04:03:20 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 04:03:20 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 04:03:20 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 04:03:21 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 28 features
+2025-08-18 04:03:21 | INFO     | envs.state_features:_select_features:231 - Selected 28 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'hour_of_day', 'day_of_week', 'is_weekend', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position', 'hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
+2025-08-18 04:03:21 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2912, 28)
+2025-08-18 04:03:21 | INFO     | envs.trading_env:_prepare_data:100 - Data prepared: 2863 samples, 28 features
+2025-08-18 04:03:21 | INFO     | envs.trading_env:_setup_spaces:127 - Action space: Discrete(3)
+2025-08-18 04:03:21 | INFO     | envs.trading_env:_setup_spaces:128 - Observation space: (2805,)
+2025-08-18 04:03:21 | INFO     | envs.trading_env:__init__:82 - Trading environment initialized with 2912 data points
+2025-08-18 04:03:21 | ERROR    | __main__:run_backtest:347 - Backtest failed: spaces must have the same shape: (2105,) != (2805,)
+2025-08-18 04:03:21 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 04:03:21 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 04:03:21 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 04:03:21 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 04:03:21 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 04:42:25 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 04:42:25 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 04:42:27 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 04:42:29 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 04:42:32 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 04:42:32 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 04:42:33 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 04:42:33 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 04:42:33 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 04:42:33 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 04:42:33 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 04:42:33 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 04:42:33 | INFO     | models.ppo_agent:__init__:160 - PPO Trading Agent initialized
+2025-08-18 04:42:33 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 04:42:33 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 04:42:33 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 04:42:33 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 04:42:33 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 04:42:34 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 04:42:34 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 04:42:35 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2912 rows from cache for XAUUSDm
+2025-08-18 04:42:35 | INFO     | __main__:_get_or_download_data:438 - Cache Data:           open      high       low     close  volume  spread  real_volume
+0     2928.828  2929.567  2926.487  2929.263    4808     159            0
+1     2929.260  2934.433  2928.003  2932.801    6146     159            0
+2     2932.775  2935.872  2930.748  2931.728    6106     160            0
+3     2931.683  2935.870  2930.440  2934.250    7926     159            0
+4     2934.210  2940.040  2933.718  2938.602    9550     159            0
+...        ...       ...       ...       ...     ...     ...          ...
+2907  3334.569  3335.381  3332.964  3334.405    3364     160            0
+2908  3334.369  3334.469  3323.503  3327.097    6672     160            0
+2909  3327.080  3342.861  3326.727  3340.615    8954     160            0
+2910  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2911  3346.864  3347.543  3344.912  3345.838     748     160            0
+
+[2912 rows x 7 columns]
+2025-08-18 04:42:35 | INFO     | __main__:_get_or_download_data:447 - Using cached data for XAUUSDm: 2912 samples
+2025-08-18 04:42:35 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 04:42:35 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 04:42:35 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 04:42:35 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 04:42:36 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 04:42:36 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 04:42:36 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2912, 21)
+2025-08-18 04:42:36 | INFO     | envs.trading_env:_prepare_data:110 - Data prepared: 2863 samples, 21 features
+2025-08-18 04:42:36 | INFO     | envs.trading_env:_setup_spaces:137 - Action space: Discrete(3)
+2025-08-18 04:42:36 | INFO     | envs.trading_env:_setup_spaces:138 - Observation space: (2105,)
+2025-08-18 04:42:36 | INFO     | envs.trading_env:__init__:82 - Trading environment initialized with 2912 data points
+2025-08-18 04:42:36 | INFO     | models.ppo_agent:load_model:451 - Loaded VecNormalize stats from models/saved_models\vecnormalize.pkl
+2025-08-18 04:42:42 | ERROR    | __main__:run_backtest:347 - Backtest failed: Error(s) in loading state_dict for ActorCriticPolicy:
+	size mismatch for mlp_extractor.policy_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.policy_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.policy_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.policy_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.value_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.value_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for action_net.weight: copying a param with shape torch.Size([3, 256]) from checkpoint, the shape in current model is torch.Size([3, 64]).
+	size mismatch for value_net.weight: copying a param with shape torch.Size([1, 256]) from checkpoint, the shape in current model is torch.Size([1, 64]).
+2025-08-18 04:42:42 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 04:42:42 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 04:42:42 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 04:42:42 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 04:42:42 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 05:34:39 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 05:34:39 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 05:34:42 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 05:34:43 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 05:34:47 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 05:34:47 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 05:34:49 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 05:34:49 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:34:50 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 05:34:50 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:34:50 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:34:50 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 05:34:50 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:34:50 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:34:50 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 05:34:50 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 05:34:50 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 05:34:50 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 05:34:50 | WARNING  | backend.data_manager:get_historical_data:538 - No cached data found for XAUUSDm:H1
+2025-08-18 05:34:50 | INFO     | __main__:_get_or_download_data:438 - Cache Data: Empty DataFrame
+Columns: []
+Index: []
+2025-08-18 05:34:50 | INFO     | services.mt5_client:connect:150 - Connected to MT5: Account 210888620, Balance: 99.6, Server: Exness-MT5Trial9
+2025-08-18 05:34:50 | INFO     | services.mt5_client:get_historical_data:231 - Retrieved 2912 bars for XAUUSDm (H1)
+2025-08-18 05:34:50 | INFO     | __main__:_get_or_download_data:462 - MT5 Data:                          open      high       low     close  volume  spread  real_volume
+time                                                                                    
+2025-02-19 05:00:00  2929.260  2934.433  2928.003  2932.801    6146     159            0
+2025-02-19 06:00:00  2932.775  2935.872  2930.748  2931.728    6106     160            0
+2025-02-19 07:00:00  2931.683  2935.870  2930.440  2934.250    7926     159            0
+2025-02-19 08:00:00  2934.210  2940.040  2933.718  2938.602    9550     159            0
+2025-02-19 09:00:00  2938.554  2946.666  2938.121  2945.517    9031     159            0
+...                       ...       ...       ...       ...     ...     ...          ...
+2025-08-17 23:00:00  3334.369  3334.469  3323.503  3327.097    6672     160            0
+2025-08-18 00:00:00  3327.080  3342.861  3326.727  3340.615    8954     160            0
+2025-08-18 01:00:00  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2025-08-18 02:00:00  3346.864  3347.543  3342.403  3343.351    5163     160            0
+2025-08-18 03:00:00  3343.315  3347.879  3343.250  3347.759    2753     160            0
+
+[2912 rows x 7 columns]
+2025-08-18 05:34:51 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 05:34:51 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 05:34:52 | INFO     | backend.data_manager:save_historical_data:500 - Cached historical data for XAUUSDm (2912 rows)
+2025-08-18 05:34:52 | INFO     | __main__:_get_or_download_data:467 - Downloaded and cached data for XAUUSDm: 2912 samples
+2025-08-18 05:34:52 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:34:52 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 05:34:52 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 05:34:52 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 28 features
+2025-08-18 05:34:52 | INFO     | envs.state_features:_select_features:231 - Selected 28 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'hour_of_day', 'day_of_week', 'is_weekend', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position', 'hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
+2025-08-18 05:34:52 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2912, 28)
+2025-08-18 05:34:52 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 05:34:52 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 05:34:52 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 05:34:52 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 05:34:52 | ERROR    | __main__:run_backtest:347 - Backtest failed: spaces must have the same shape: (2105,) != (2805,)
+2025-08-18 05:34:52 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 05:34:52 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 05:34:52 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 05:34:52 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 05:34:52 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 05:36:40 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 05:36:40 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 05:36:48 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 05:36:49 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 05:36:52 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 05:36:52 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 05:36:54 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 05:36:54 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:36:54 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 05:36:54 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:36:54 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:36:54 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 05:36:54 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:36:54 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:36:54 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 05:36:54 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 05:36:54 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 05:36:54 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 05:36:55 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2912 rows from cache for XAUUSDm
+2025-08-18 05:36:55 | INFO     | __main__:_get_or_download_data:438 - Cache Data:           open      high       low     close  volume  spread  real_volume
+0     2929.260  2934.433  2928.003  2932.801    6146     159            0
+1     2932.775  2935.872  2930.748  2931.728    6106     160            0
+2     2931.683  2935.870  2930.440  2934.250    7926     159            0
+3     2934.210  2940.040  2933.718  2938.602    9550     159            0
+4     2938.554  2946.666  2938.121  2945.517    9031     159            0
+...        ...       ...       ...       ...     ...     ...          ...
+2907  3334.369  3334.469  3323.503  3327.097    6672     160            0
+2908  3327.080  3342.861  3326.727  3340.615    8954     160            0
+2909  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2910  3346.864  3347.543  3342.403  3343.351    5163     160            0
+2911  3343.315  3347.879  3343.250  3347.759    2753     160            0
+
+[2912 rows x 7 columns]
+2025-08-18 05:36:55 | INFO     | __main__:_get_or_download_data:447 - Using cached data for XAUUSDm: 2912 samples
+2025-08-18 05:36:55 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:36:55 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 05:36:55 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 05:36:55 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 05:36:55 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 05:36:55 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 05:36:55 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2912, 21)
+2025-08-18 05:36:55 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 05:36:55 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 05:36:55 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 05:36:55 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 05:36:55 | ERROR    | __main__:run_backtest:347 - Backtest failed: Model file not found: models/saved_models/best_model.zip
+2025-08-18 05:36:55 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 05:36:55 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 05:36:55 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 05:36:55 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 05:36:55 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 05:36:55 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 05:36:55 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 05:39:36 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 05:39:36 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 05:39:38 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 05:39:40 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 05:39:43 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 05:39:43 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 05:39:44 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 05:39:44 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:39:44 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 05:39:44 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:39:44 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:39:44 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 05:39:44 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:39:44 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:39:44 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 05:39:44 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 05:39:44 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 05:39:44 | INFO     | __main__:run_training:215 - Starting training for XAUUSDm
+2025-08-18 05:39:45 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2912 rows from cache for XAUUSDm
+2025-08-18 05:39:45 | INFO     | __main__:_get_or_download_data:438 - Cache Data:           open      high       low     close  volume  spread  real_volume
+0     2929.260  2934.433  2928.003  2932.801    6146     159            0
+1     2932.775  2935.872  2930.748  2931.728    6106     160            0
+2     2931.683  2935.870  2930.440  2934.250    7926     159            0
+3     2934.210  2940.040  2933.718  2938.602    9550     159            0
+4     2938.554  2946.666  2938.121  2945.517    9031     159            0
+...        ...       ...       ...       ...     ...     ...          ...
+2907  3334.369  3334.469  3323.503  3327.097    6672     160            0
+2908  3327.080  3342.861  3326.727  3340.615    8954     160            0
+2909  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2910  3346.864  3347.543  3342.403  3343.351    5163     160            0
+2911  3343.315  3347.879  3343.250  3347.759    2753     160            0
+
+[2912 rows x 7 columns]
+2025-08-18 05:39:45 | INFO     | __main__:_get_or_download_data:447 - Using cached data for XAUUSDm: 2912 samples
+2025-08-18 05:39:45 | INFO     | __main__:run_training:235 - Training data prepared: 2912 samples
+2025-08-18 05:39:45 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:39:45 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 05:39:45 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 05:39:45 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 05:39:45 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 05:39:46 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 05:39:46 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2329, 21)
+2025-08-18 05:39:46 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 05:39:46 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 05:39:46 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 05:39:46 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 05:39:46 | INFO     | models.ppo_agent:create_model:358 - Creating new PPO model
+2025-08-18 05:39:52 | INFO     | models.ppo_agent:create_model:406 - PPO model created successfully
+2025-08-18 05:39:52 | INFO     | models.ppo_agent:train:413 - Starting PPO training with 2329 samples
+2025-08-18 05:39:52 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:39:52 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 05:39:52 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 05:39:52 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 05:39:52 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 05:39:52 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 05:39:52 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (583, 21)
+2025-08-18 05:39:52 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 05:39:52 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 05:39:52 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 05:39:52 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 05:39:52 | ERROR    | models.ppo_agent:train:492 - Training failed: RewardCalculator.calculate_reward() got an unexpected keyword argument 'current_drawdown'
+2025-08-18 05:39:52 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 05:39:52 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 05:39:53 | INFO     | backend.data_manager:save_training_session:296 - Training session 7d86411d-26ab-41eb-87b2-1ef11dddf939 saved successfully
+2025-08-18 05:39:53 | INFO     | __main__:run_training:277 - Training completed for XAUUSDm: {'success': False, 'error': "RewardCalculator.calculate_reward() got an unexpected keyword argument 'current_drawdown'"}
+2025-08-18 05:39:53 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 05:39:53 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 05:39:53 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 05:39:54 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 05:39:54 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 05:45:10 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 05:45:10 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 05:45:12 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 05:45:14 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 05:45:17 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 05:45:17 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 05:45:18 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 05:45:18 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:45:18 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 05:45:18 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:45:18 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:45:18 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 05:45:18 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 05:45:18 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:45:18 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 05:45:18 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 05:45:18 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 05:45:18 | INFO     | __main__:run_training:215 - Starting training for XAUUSDm
+2025-08-18 05:45:19 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2912 rows from cache for XAUUSDm
+2025-08-18 05:45:19 | INFO     | __main__:_get_or_download_data:438 - Cache Data:           open      high       low     close  volume  spread  real_volume
+0     2929.260  2934.433  2928.003  2932.801    6146     159            0
+1     2932.775  2935.872  2930.748  2931.728    6106     160            0
+2     2931.683  2935.870  2930.440  2934.250    7926     159            0
+3     2934.210  2940.040  2933.718  2938.602    9550     159            0
+4     2938.554  2946.666  2938.121  2945.517    9031     159            0
+...        ...       ...       ...       ...     ...     ...          ...
+2907  3334.369  3334.469  3323.503  3327.097    6672     160            0
+2908  3327.080  3342.861  3326.727  3340.615    8954     160            0
+2909  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2910  3346.864  3347.543  3342.403  3343.351    5163     160            0
+2911  3343.315  3347.879  3343.250  3347.759    2753     160            0
+
+[2912 rows x 7 columns]
+2025-08-18 05:45:19 | INFO     | __main__:_get_or_download_data:447 - Using cached data for XAUUSDm: 2912 samples
+2025-08-18 05:45:19 | INFO     | __main__:run_training:235 - Training data prepared: 2912 samples
+2025-08-18 05:45:19 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:45:19 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 05:45:19 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 05:45:19 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 05:45:19 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 05:45:19 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 05:45:19 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2329, 21)
+2025-08-18 05:45:19 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 05:45:19 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 05:45:19 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 05:45:19 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 05:45:19 | INFO     | models.ppo_agent:create_model:358 - Creating new PPO model
+2025-08-18 05:45:25 | INFO     | models.ppo_agent:create_model:406 - PPO model created successfully
+2025-08-18 05:45:25 | INFO     | models.ppo_agent:train:413 - Starting PPO training with 2329 samples
+2025-08-18 05:45:25 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 05:45:25 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 05:45:25 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 05:45:25 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 05:45:25 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 05:45:25 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 05:45:25 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (583, 21)
+2025-08-18 05:45:25 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 05:45:25 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 05:45:25 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 05:45:25 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 05:45:41 | INFO     | models.ppo_agent:_on_rollout_end:153 - New best model saved with portfolio value: 9259.93
+2025-08-18 05:46:22 | INFO     | models.ppo_agent:_on_rollout_end:153 - New best model saved with portfolio value: 1031191.98
+2025-08-18 06:03:29 | INFO     | models.ppo_agent:_on_rollout_end:153 - New best model saved with portfolio value: 2647859.46
+2025-08-18 06:03:59 | INFO     | models.ppo_agent:_on_rollout_end:153 - New best model saved with portfolio value: 5626358.91
+2025-08-18 10:45:38 | INFO     | models.ppo_agent:train:454 - Saved VecNormalize stats to ./models/saved_models\vecnormalize.pkl
+2025-08-18 10:45:38 | WARNING  | models.ppo_agent:train:475 - Could not save policy_kwargs.yaml: ('cannot represent an object', <class 'torch.nn.modules.activation.ReLU'>)
+2025-08-18 10:45:38 | INFO     | models.ppo_agent:train:477 - Training completed. Model saved to ./models/saved_models/ppo_final_63eceac2-7d52-4d01-9716-347fc8f83f69.zip
+2025-08-18 10:45:38 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 10:45:38 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 10:45:38 | ERROR    | backend.data_manager:save_training_session:300 - Error saving training session: connection was closed in the middle of operation
+2025-08-18 10:45:38 | INFO     | __main__:run_training:277 - Training completed for XAUUSDm: {'success': True, 'model_path': './models/saved_models/ppo_final_63eceac2-7d52-4d01-9716-347fc8f83f69.zip', 'total_timesteps': 1000000, 'best_model_path': 'C:\\Users\\ikchr\\AppData\\Local\\Temp\\SB3-2025-08-18-05-45-25-318568\\best_model', 'final_performance': {'mean_reward': np.float64(5626358.91439637), 'total_episodes': 0}}
+2025-08-18 10:45:38 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 10:45:38 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 10:45:38 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 10:45:38 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 10:45:38 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 11:28:45 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 11:28:45 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 11:28:49 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 11:28:52 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 11:28:55 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 11:28:55 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 11:28:56 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 11:28:56 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:28:56 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 11:28:56 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:28:56 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:28:56 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 11:28:56 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:28:56 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:28:56 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 11:28:56 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 11:28:56 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 11:28:56 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 11:28:57 | WARNING  | backend.data_manager:get_historical_data:538 - No cached data found for XAUUSDm:H1
+2025-08-18 11:28:57 | INFO     | __main__:_get_or_download_data:438 - Cache Data: Empty DataFrame
+Columns: []
+Index: []
+2025-08-18 11:28:57 | INFO     | services.mt5_client:connect:150 - Connected to MT5: Account 210888620, Balance: 99.6, Server: Exness-MT5Trial9
+2025-08-18 11:28:57 | INFO     | services.mt5_client:get_historical_data:231 - Retrieved 2908 bars for XAUUSDm (H1)
+2025-08-18 11:28:58 | INFO     | __main__:_get_or_download_data:462 - MT5 Data:                          open      high       low     close  volume  spread  real_volume
+time                                                                                    
+2025-02-19 11:00:00  2944.728  2946.053  2934.023  2935.087    7599     159            0
+2025-02-19 12:00:00  2935.059  2936.743  2931.202  2933.540    9730     159            0
+2025-02-19 13:00:00  2933.507  2941.657  2932.464  2936.258   13991     159            0
+2025-02-19 14:00:00  2936.225  2940.571  2930.193  2938.095   19575     159            0
+2025-02-19 15:00:00  2938.070  2939.168  2925.426  2925.793   13974     159            0
+...                       ...       ...       ...       ...     ...     ...          ...
+2025-08-18 01:00:00  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2025-08-18 02:00:00  3346.864  3347.543  3342.403  3343.351    5163     160            0
+2025-08-18 03:00:00  3343.315  3351.841  3343.250  3347.156    5679     160            0
+2025-08-18 04:00:00  3347.073  3358.219  3346.754  3357.455    5314     160            0
+2025-08-18 05:00:00  3357.492  3358.418  3355.472  3356.445     523     160            0
+
+[2908 rows x 7 columns]
+2025-08-18 11:28:59 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 11:28:59 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 11:30:02 | INFO     | backend.data_manager:save_historical_data:500 - Cached historical data for XAUUSDm (2908 rows)
+2025-08-18 11:30:02 | INFO     | __main__:_get_or_download_data:467 - Downloaded and cached data for XAUUSDm: 2908 samples
+2025-08-18 11:30:02 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:30:02 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 11:30:02 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 11:30:03 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 28 features
+2025-08-18 11:30:03 | INFO     | envs.state_features:_select_features:231 - Selected 28 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'hour_of_day', 'day_of_week', 'is_weekend', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position', 'hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
+2025-08-18 11:30:03 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2908, 28)
+2025-08-18 11:30:03 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 11:30:03 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 11:30:03 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 11:30:03 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 11:30:03 | ERROR    | __main__:run_backtest:347 - Backtest failed: spaces must have the same shape: (2105,) != (2805,)
+2025-08-18 11:30:03 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 11:30:03 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 11:30:03 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 11:30:03 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 11:30:03 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 11:31:29 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 11:31:29 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 11:31:45 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 11:32:07 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 11:32:18 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 11:32:18 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 11:34:27 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 11:34:27 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:34:27 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 11:34:27 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:34:27 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:34:27 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 11:34:27 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:34:27 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:34:27 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 11:34:27 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 11:34:27 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 11:34:27 | ERROR    | __main__:run:575 - Error in main run loop: Model path required for backtesting
+2025-08-18 11:34:27 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 11:34:27 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 11:34:27 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 11:34:28 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 11:34:28 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 11:37:06 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 11:37:06 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 11:37:09 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 11:37:10 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 11:37:13 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 11:37:13 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 11:37:14 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 11:37:14 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:37:14 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 11:37:14 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:37:14 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:37:14 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 11:37:14 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:37:14 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:37:14 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 11:37:14 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 11:37:14 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 11:37:14 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/ppo_final_63eceac2-7d52-4d01-9716-347fc8f83f69.zip
+2025-08-18 11:37:16 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2908 rows from cache for XAUUSDm
+2025-08-18 11:37:16 | INFO     | __main__:_get_or_download_data:438 - Cache Data:           open      high       low     close  volume  spread  real_volume
+0     2944.728  2946.053  2934.023  2935.087    7599     159            0
+1     2935.059  2936.743  2931.202  2933.540    9730     159            0
+2     2933.507  2941.657  2932.464  2936.258   13991     159            0
+3     2936.225  2940.571  2930.193  2938.095   19575     159            0
+4     2938.070  2939.168  2925.426  2925.793   13974     159            0
+...        ...       ...       ...       ...     ...     ...          ...
+2903  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2904  3346.864  3347.543  3342.403  3343.351    5163     160            0
+2905  3343.315  3351.841  3343.250  3347.156    5679     160            0
+2906  3347.073  3358.219  3346.754  3357.455    5314     160            0
+2907  3357.492  3358.418  3355.472  3356.445     523     160            0
+
+[2908 rows x 7 columns]
+2025-08-18 11:37:16 | INFO     | __main__:_get_or_download_data:447 - Using cached data for XAUUSDm: 2908 samples
+2025-08-18 11:37:16 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:37:16 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 11:37:16 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 11:37:16 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 11:37:16 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 11:37:16 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 11:37:16 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2908, 21)
+2025-08-18 11:37:16 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 11:37:16 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 11:37:16 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 11:37:16 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 11:37:16 | INFO     | models.ppo_agent:load_model:648 - Loaded VecNormalize stats from models/saved_models\vecnormalize.pkl
+2025-08-18 11:37:25 | ERROR    | models.ppo_agent:load_model:659 - Failed to load model due to: Error(s) in loading state_dict for ActorCriticPolicy:
+	size mismatch for mlp_extractor.policy_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.policy_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.policy_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.policy_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.value_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.value_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for action_net.weight: copying a param with shape torch.Size([3, 256]) from checkpoint, the shape in current model is torch.Size([3, 64]).
+	size mismatch for value_net.weight: copying a param with shape torch.Size([1, 256]) from checkpoint, the shape in current model is torch.Size([1, 64]).
+2025-08-18 11:37:25 | ERROR    | __main__:run_backtest:347 - Backtest failed: Error(s) in loading state_dict for ActorCriticPolicy:
+	size mismatch for mlp_extractor.policy_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.policy_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.policy_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.policy_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.value_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.value_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for action_net.weight: copying a param with shape torch.Size([3, 256]) from checkpoint, the shape in current model is torch.Size([3, 64]).
+	size mismatch for value_net.weight: copying a param with shape torch.Size([1, 256]) from checkpoint, the shape in current model is torch.Size([1, 64]).
+2025-08-18 11:37:25 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 11:37:25 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 11:37:25 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 11:37:25 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 11:37:25 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 11:37:26 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 11:37:26 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 11:47:35 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 11:47:35 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 11:47:39 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 11:47:40 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 11:47:43 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 11:47:43 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 11:47:44 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 11:47:44 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:47:44 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 11:47:44 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:47:44 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:47:44 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 11:47:44 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 11:47:44 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:47:44 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 11:47:44 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 11:47:44 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 11:47:44 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/vecnormalize.pkl
+2025-08-18 11:47:45 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2908 rows from cache for XAUUSDm
+2025-08-18 11:47:45 | INFO     | __main__:_get_or_download_data:438 - Cache Data:           open      high       low     close  volume  spread  real_volume
+0     2944.728  2946.053  2934.023  2935.087    7599     159            0
+1     2935.059  2936.743  2931.202  2933.540    9730     159            0
+2     2933.507  2941.657  2932.464  2936.258   13991     159            0
+3     2936.225  2940.571  2930.193  2938.095   19575     159            0
+4     2938.070  2939.168  2925.426  2925.793   13974     159            0
+...        ...       ...       ...       ...     ...     ...          ...
+2903  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2904  3346.864  3347.543  3342.403  3343.351    5163     160            0
+2905  3343.315  3351.841  3343.250  3347.156    5679     160            0
+2906  3347.073  3358.219  3346.754  3357.455    5314     160            0
+2907  3357.492  3358.418  3355.472  3356.445     523     160            0
+
+[2908 rows x 7 columns]
+2025-08-18 11:47:45 | INFO     | __main__:_get_or_download_data:447 - Using cached data for XAUUSDm: 2908 samples
+2025-08-18 11:47:45 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 11:47:45 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 11:47:45 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 11:47:46 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 11:47:46 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 11:47:46 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 11:47:46 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2908, 21)
+2025-08-18 11:47:46 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 11:47:46 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 11:47:46 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 11:47:46 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 11:47:46 | INFO     | models.ppo_agent:load_model:648 - Loaded VecNormalize stats from models/saved_models\vecnormalize.pkl
+2025-08-18 11:47:46 | ERROR    | models.ppo_agent:load_model:659 - Failed to load model due to: Error: the file models/saved_models/vecnormalize.pkl wasn't a zip-file
+2025-08-18 11:47:46 | ERROR    | __main__:run_backtest:347 - Backtest failed: Error: the file models/saved_models/vecnormalize.pkl wasn't a zip-file
+2025-08-18 11:47:46 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 11:47:46 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 11:47:46 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 11:47:46 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 11:47:46 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 11:47:46 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 11:47:46 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 12:13:39 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 12:13:39 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 12:13:42 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 12:13:43 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 12:13:46 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 12:13:46 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 12:13:47 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 12:13:47 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 12:13:48 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 12:13:48 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 12:13:48 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:13:48 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 12:13:48 | INFO     | models.ppo_agent:__init__:204 - PPO Trading Agent initialized
+2025-08-18 12:13:48 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:13:48 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 12:13:48 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 12:13:48 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 12:13:48 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/best_model.zip
+2025-08-18 12:13:49 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 2908 rows from cache for XAUUSDm
+2025-08-18 12:13:49 | INFO     | __main__:_get_or_download_data:438 - Cache Data:           open      high       low     close  volume  spread  real_volume
+0     2944.728  2946.053  2934.023  2935.087    7599     159            0
+1     2935.059  2936.743  2931.202  2933.540    9730     159            0
+2     2933.507  2941.657  2932.464  2936.258   13991     159            0
+3     2936.225  2940.571  2930.193  2938.095   19575     159            0
+4     2938.070  2939.168  2925.426  2925.793   13974     159            0
+...        ...       ...       ...       ...     ...     ...          ...
+2903  3340.509  3347.470  3339.550  3346.874    8651     160            0
+2904  3346.864  3347.543  3342.403  3343.351    5163     160            0
+2905  3343.315  3351.841  3343.250  3347.156    5679     160            0
+2906  3347.073  3358.219  3346.754  3357.455    5314     160            0
+2907  3357.492  3358.418  3355.472  3356.445     523     160            0
+
+[2908 rows x 7 columns]
+2025-08-18 12:13:49 | INFO     | __main__:_get_or_download_data:447 - Using cached data for XAUUSDm: 2908 samples
+2025-08-18 12:13:49 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:13:49 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 12:13:49 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 12:13:49 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 12:13:49 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 12:13:49 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 12:13:49 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2908, 21)
+2025-08-18 12:13:49 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 12:13:49 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 12:13:49 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 12:13:49 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 12:13:49 | INFO     | models.ppo_agent:load_model:648 - Loaded VecNormalize stats from models/saved_models\vecnormalize.pkl
+2025-08-18 12:13:55 | ERROR    | models.ppo_agent:load_model:659 - Failed to load model due to: Error(s) in loading state_dict for ActorCriticPolicy:
+	size mismatch for mlp_extractor.policy_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.policy_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.policy_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.policy_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.value_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.value_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for action_net.weight: copying a param with shape torch.Size([3, 256]) from checkpoint, the shape in current model is torch.Size([3, 64]).
+	size mismatch for value_net.weight: copying a param with shape torch.Size([1, 256]) from checkpoint, the shape in current model is torch.Size([1, 64]).
+2025-08-18 12:13:55 | ERROR    | __main__:run_backtest:347 - Backtest failed: Error(s) in loading state_dict for ActorCriticPolicy:
+	size mismatch for mlp_extractor.policy_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.policy_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.policy_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.policy_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.0.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 256]).
+	size mismatch for mlp_extractor.value_net.0.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for mlp_extractor.value_net.2.weight: copying a param with shape torch.Size([256, 256]) from checkpoint, the shape in current model is torch.Size([64, 64]).
+	size mismatch for mlp_extractor.value_net.2.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for action_net.weight: copying a param with shape torch.Size([3, 256]) from checkpoint, the shape in current model is torch.Size([3, 64]).
+	size mismatch for value_net.weight: copying a param with shape torch.Size([1, 256]) from checkpoint, the shape in current model is torch.Size([1, 64]).
+2025-08-18 12:13:55 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 12:13:55 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 12:13:55 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 12:13:55 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 12:13:55 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 12:13:56 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 12:13:56 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 12:34:36 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 12:34:36 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 12:34:56 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 12:34:59 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 12:35:03 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 12:35:03 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 12:35:27 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 12:35:28 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 12:35:28 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 12:35:28 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 12:35:28 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:35:28 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 12:35:28 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 12:35:28 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:35:28 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 12:35:28 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 12:35:28 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 12:35:28 | INFO     | __main__:run_training:215 - Starting training for XAUUSDm
+2025-08-18 12:35:29 | WARNING  | backend.data_manager:get_historical_data:538 - No cached data found for XAUUSDm:H1
+2025-08-18 12:35:29 | INFO     | __main__:_get_or_download_data:438 - Cache Data: Empty DataFrame
+Columns: []
+Index: []
+2025-08-18 12:35:31 | INFO     | services.mt5_client:connect:150 - Connected to MT5: Account 210888620, Balance: 99.6, Server: Exness-MT5Trial9
+2025-08-18 12:35:31 | INFO     | services.mt5_client:get_historical_data:231 - Retrieved 11788 bars for XAUUSDm (H1)
+2025-08-18 12:35:31 | INFO     | __main__:_get_or_download_data:462 - MT5 Data:                          open      high       low     close  volume  spread  real_volume
+time                                                                                    
+2023-08-20 22:00:00  1889.357  1890.823  1889.283  1890.301    1451     200            0
+2023-08-20 23:00:00  1890.304  1890.304  1888.800  1889.919    1724     200            0
+2023-08-21 00:00:00  1889.934  1891.111  1889.851  1889.907    2148     200            0
+2023-08-21 01:00:00  1889.881  1889.984  1884.890  1885.409    4195     200            0
+2023-08-21 02:00:00  1885.410  1892.828  1884.547  1892.602    3934     200            0
+...                       ...       ...       ...       ...     ...     ...          ...
+2025-08-18 06:00:00  3349.579  3351.113  3346.003  3349.418    6313     160            0
+2025-08-18 07:00:00  3349.516  3355.648  3347.144  3349.022    6984     160            0
+2025-08-18 08:00:00  3349.024  3349.960  3344.554  3348.651    5909     160            0
+2025-08-18 09:00:00  3348.665  3351.734  3347.521  3348.152    5479     160            0
+2025-08-18 10:00:00  3348.124  3351.412  3347.912  3348.179    4365     160            0
+
+[11788 rows x 7 columns]
+2025-08-18 12:35:31 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 12:35:31 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 12:36:06 | INFO     | backend.data_manager:save_historical_data:500 - Cached historical data for XAUUSDm (11788 rows)
+2025-08-18 12:36:06 | INFO     | __main__:_get_or_download_data:467 - Downloaded and cached data for XAUUSDm: 11788 samples
+2025-08-18 12:36:06 | INFO     | __main__:run_training:235 - Training data prepared: 11788 samples
+2025-08-18 12:36:06 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:36:06 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 12:36:06 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 12:36:07 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 28 features
+2025-08-18 12:36:07 | INFO     | envs.state_features:_select_features:231 - Selected 28 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'hour_of_day', 'day_of_week', 'is_weekend', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position', 'hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
+2025-08-18 12:36:07 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (9430, 28)
+2025-08-18 12:36:07 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 12:36:07 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 12:36:08 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 12:36:08 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 12:36:08 | INFO     | models.ppo_agent:create_model:311 - Creating new PPO model
+2025-08-18 12:36:35 | INFO     | models.ppo_agent:create_model:349 - PPO model created successfully
+2025-08-18 12:36:35 | INFO     | models.ppo_agent:train:355 - Starting PPO training with 9430 samples
+2025-08-18 12:36:35 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:36:35 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 12:36:35 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 12:36:35 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 28 features
+2025-08-18 12:36:35 | INFO     | envs.state_features:_select_features:231 - Selected 28 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'hour_of_day', 'day_of_week', 'is_weekend', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position', 'hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
+2025-08-18 12:36:35 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (2358, 28)
+2025-08-18 12:36:35 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 12:36:35 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 12:36:35 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 12:36:35 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 12:37:05 | INFO     | models.ppo_agent:_on_rollout_end:101 - New best model saved with portfolio value: 3753641042.18
+2025-08-18 12:37:56 | INFO     | models.ppo_agent:train:393 - Saved VecNormalize stats to ./models/saved_models\vecnormalize.pkl
+2025-08-18 12:37:56 | INFO     | models.ppo_agent:train:415 - Training completed. Model saved to ./models/saved_models/ppo_final_20f501a1-b790-4048-bd52-69808f9579d1.zip
+2025-08-18 12:37:57 | INFO     | backend.data_manager:save_training_session:296 - Training session 20f501a1-b790-4048-bd52-69808f9579d1 saved successfully
+2025-08-18 12:37:57 | INFO     | __main__:run_training:277 - Training completed for XAUUSDm: {'success': True, 'model_path': './models/saved_models/ppo_final_20f501a1-b790-4048-bd52-69808f9579d1.zip', 'total_timesteps': 1000, 'best_model_path': 'C:\\Users\\ikchr\\AppData\\Local\\Temp\\SB3-2025-08-18-12-36-35-680300\\best_model', 'final_performance': {'mean_reward': np.float64(3753641042.175354), 'total_episodes': 0}}
+2025-08-18 12:37:57 | INFO     | __main__:shutdown:488 - Shutting down PPO Trading System...
+2025-08-18 12:37:57 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 12:37:57 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 12:37:58 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 12:37:58 | INFO     | __main__:shutdown:505 - System shutdown completed
+2025-08-18 12:47:22 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 12:47:22 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 12:47:34 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 12:47:40 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 12:47:44 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 12:47:44 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 12:47:45 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 12:47:45 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 12:47:45 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 12:47:45 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 12:47:45 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:47:45 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 12:47:45 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 12:47:45 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:47:45 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 12:47:45 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 12:47:45 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 12:47:45 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/ppo_final_20f501a1-b790-4048-bd52-69808f9579d1.zip
+2025-08-18 12:47:53 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 12:47:53 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 12:50:39 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 11788 rows from cache for XAUUSDm
+2025-08-18 12:50:39 | INFO     | __main__:_get_or_download_data:445 - Using cached data for XAUUSDm: 11788 samples
+2025-08-18 12:50:39 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 12:50:39 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 12:50:39 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 12:50:40 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 12:50:40 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 12:50:40 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 12:50:40 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (11788, 21)
+2025-08-18 12:50:40 | INFO     | envs.trading_env:_prepare_data:201 - Data prepared: %d samples, %d features
+2025-08-18 12:50:40 | INFO     | envs.trading_env:_setup_spaces:229 - Action space: %s
+2025-08-18 12:50:40 | INFO     | envs.trading_env:_setup_spaces:230 - Observation space: %s
+2025-08-18 12:50:40 | INFO     | envs.trading_env:__init__:136 - Trading environment initialized with %d data points
+2025-08-18 12:50:40 | ERROR    | __main__:run_backtest:347 - Backtest failed: spaces must have the same shape: (2805,) != (2105,)
+2025-08-18 12:50:40 | INFO     | __main__:shutdown:485 - Shutting down PPO Trading System...
+2025-08-18 12:50:40 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 12:50:40 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 12:50:41 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 12:50:41 | INFO     | __main__:shutdown:502 - System shutdown completed
+2025-08-18 13:11:42 | INFO     | __main__:__init__:83 - PPO Trading System initialized
+2025-08-18 13:11:42 | INFO     | __main__:initialize:118 - Initializing PPO Trading System...
+2025-08-18 13:11:45 | INFO     | backend.data_manager:_connect_postgres:93 - Connected to PostgreSQL database
+2025-08-18 13:11:46 | INFO     | backend.data_manager:_connect_redis:116 - Connected to Redis cache
+2025-08-18 13:11:49 | INFO     | backend.data_manager:_create_tables:247 - Database tables created/verified successfully
+2025-08-18 13:11:49 | INFO     | backend.data_manager:initialize:72 - Data manager initialization completed
+2025-08-18 13:11:51 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 13:11:51 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 13:11:51 | INFO     | services.mt5_client:__init__:113 - MT5 Client initialized
+2025-08-18 13:11:51 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 13:11:51 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 13:11:51 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 13:11:51 | INFO     | models.ppo_agent:__init__:144 - PPO Trading Agent initialized
+2025-08-18 13:11:51 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 13:11:51 | INFO     | services.signal_generator:__init__:110 - Signal generator initialized
+2025-08-18 13:11:51 | INFO     | __main__:initialize:151 - System initialization completed successfully
+2025-08-18 13:11:51 | INFO     | __main__:start_websocket_server:418 - WebSocket server started
+2025-08-18 13:11:51 | INFO     | __main__:run_backtest:311 - Starting backtest for XAUUSDm with model models/saved_models/ppo_final_20f501a1-b790-4048-bd52-69808f9579d1.zip
+2025-08-18 13:11:54 | INFO     | services.websocket_server:initialize:108 - Redis connection established
+2025-08-18 13:11:54 | INFO     | services.websocket_server:start_server:415 - WebSocket server started on 0.0.0.0:8080
+2025-08-18 13:11:58 | INFO     | backend.data_manager:get_historical_data:530 - Retrieved 11788 rows from cache for XAUUSDm
+2025-08-18 13:11:58 | INFO     | __main__:_get_or_download_data:445 - Using cached data for XAUUSDm: 11788 samples
+2025-08-18 13:11:58 | INFO     | envs.state_features:__init__:41 - State feature extractor initialized
+2025-08-18 13:11:58 | INFO     | envs.reward_functions:__init__:43 - Reward calculator initialized with type: profit_based
+2025-08-18 13:11:58 | INFO     | envs.state_features:extract_features:53 - Extracting features from market data
+2025-08-18 13:11:58 | WARNING  | envs.state_features:_add_time_features:141 - No timestamp column found, using integer index
+2025-08-18 13:11:58 | INFO     | envs.state_features:_normalize_features:198 - Feature normalization parameters fitted for 26 features
+2025-08-18 13:11:58 | INFO     | envs.state_features:_select_features:231 - Selected 21 features: ['open', 'high', 'low', 'close', 'volume', 'sma_5', 'sma_20', 'sma_50', 'ema_12', 'ema_26', 'rsi_14', 'macd', 'macd_signal', 'bb_upper', 'bb_lower', 'atr_14', 'price_change', 'high_low_ratio', 'volume_ratio', 'volatility', 'price_position']
+2025-08-18 13:11:58 | INFO     | envs.state_features:extract_features:69 - Feature extraction complete. Shape: (11788, 21)
+2025-08-18 13:11:58 | INFO     | envs.trading_env:_prepare_data:184 - Data prepared: 11739 samples, 21 features
+2025-08-18 13:11:58 | INFO     | envs.trading_env:_setup_spaces:218 - Action space: Discrete(3)
+2025-08-18 13:11:58 | INFO     | envs.trading_env:_setup_spaces:219 - Observation space: (2105,)
+2025-08-18 13:11:58 | INFO     | envs.trading_env:__init__:116 - Trading environment initialized with 11788 data points
+2025-08-18 13:11:58 | ERROR    | __main__:run_backtest:347 - Backtest failed: spaces must have the same shape: (2805,) != (2105,)
+2025-08-18 13:11:58 | INFO     | __main__:shutdown:485 - Shutting down PPO Trading System...
+2025-08-18 13:11:58 | INFO     | services.mt5_client:stop_streaming:308 - Stopped market data streaming
+2025-08-18 13:11:58 | INFO     | services.mt5_client:disconnect:166 - Disconnected from MT5
+2025-08-18 13:11:59 | INFO     | backend.data_manager:close:265 - Database connections closed
+2025-08-18 13:11:59 | INFO     | __main__:shutdown:502 - System shutdown completed
