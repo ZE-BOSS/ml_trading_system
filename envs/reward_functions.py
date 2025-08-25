@@ -83,6 +83,11 @@ class RewardCalculator:
             self.previous_portfolio_value = portfolio_value
             return 0.0
         
+        # Avoid division by zero
+        if self.previous_portfolio_value <= 0:
+            self.previous_portfolio_value = portfolio_value
+            return 0.0
+        
         # Calculate step return
         step_return = (portfolio_value - self.previous_portfolio_value) / self.previous_portfolio_value
         

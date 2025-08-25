@@ -107,8 +107,8 @@ environment:
 
   signature:
     lookback_window: 100
-    n_features: 28
-    obs_dim: 2805
+    n_features: 28  # 5 price + 11 tech + 7 time + 5 derived = 28
+    obs_dim: 2805   # 100 * 28 + 5 = 2805
     portfolio_features_dim: 5
     feature_names:
       - "open"

@@ -75,42 +75,69 @@ class StateFeatureExtractor:
         
         for indicator in indicators:
             try:
-                if indicator == 'sma_5':
-                    df['sma_5'] = ta.sma(df['close'], length=5)
-                elif indicator == 'sma_20':
-                    df['sma_20'] = ta.sma(df['close'], length=20)
-                elif indicator == 'sma_50':
-                    df['sma_50'] = ta.sma(df['close'], length=50)
-                elif indicator == 'ema_12':
-                    df['ema_12'] = ta.ema(df['close'], length=12)
-                elif indicator == 'ema_26':
-                    df['ema_26'] = ta.ema(df['close'], length=26)
-                elif indicator == 'rsi_14':
-                    df['rsi_14'] = ta.rsi(df['close'], length=14)
-                elif indicator == 'macd':
-                    macd_df = ta.macd(df['close'], fast=12, slow=26, signal=9)
-                    df['macd'] = macd_df['MACD_12_26_9']
-                    df['macd_signal'] = macd_df['MACDs_12_26_9']
-                    df['macd_hist'] = macd_df['MACDh_12_26_9']
-                elif indicator in ['bb_upper', 'bb_lower']:
-                    bbands = ta.bbands(df['close'], length=20, std=2)
-                    df['bb_upper'] = bbands['BBU_20_2.0']
-                    df['bb_middle'] = bbands['BBM_20_2.0']
-                    df['bb_lower'] = bbands['BBL_20_2.0']
-                elif indicator == 'atr_14':
-                    df['atr_14'] = ta.atr(df['high'], df['low'], df['close'], length=14)
-                elif indicator == 'stoch_k':
-                    stoch = ta.stoch(df['high'], df['low'], df['close'], k=14, d=3, smooth_k=3)
-                    df['stoch_k'] = stoch['STOCHk_14_3_3']
-                    df['stoch_d'] = stoch['STOCHd_14_3_3']
-                elif indicator == 'williams_r':
-                    df['williams_r'] = ta.willr(df['high'], df['low'], df['close'], length=14)
-                elif indicator == 'cci_14':
-                    df['cci_14'] = ta.cci(df['high'], df['low'], df['close'], length=14)
-                elif indicator == 'adx_14':
-                    df['adx_14'] = ta.adx(df['high'], df['low'], df['close'], length=14)['ADX_14']
-                elif indicator == 'obv':
-                    df['obv'] = ta.obv(df['close'], df['volume'])
+                if HAS_PANDAS_TA:
+                    # Use pandas_ta if available
+                    if indicator == 'sma_5':
+                        df['sma_5'] = ta.sma(df['close'], length=5)
+                    elif indicator == 'sma_20':
+                        df['sma_20'] = ta.sma(df['close'], length=20)
+                    elif indicator == 'sma_50':
+                        df['sma_50'] = ta.sma(df['close'], length=50)
+                    elif indicator == 'ema_12':
+                        df['ema_12'] = ta.ema(df['close'], length=12)
+                    elif indicator == 'ema_26':
+                        df['ema_26'] = ta.ema(df['close'], length=26)
+                    elif indicator == 'rsi_14':
+                        df['rsi_14'] = ta.rsi(df['close'], length=14)
+                    elif indicator == 'macd':
+                        macd_df = ta.macd(df['close'], fast=12, slow=26, signal=9)
+                        df['macd'] = macd_df['MACD_12_26_9']
+                        df['macd_signal'] = macd_df['MACDs_12_26_9']
+                        df['macd_hist'] = macd_df['MACDh_12_26_9']
+                    elif indicator in ['bb_upper', 'bb_lower']:
+                        bbands = ta.bbands(df['close'], length=20, std=2)
+                        df['bb_upper'] = bbands['BBU_20_2.0']
+                        df['bb_middle'] = bbands['BBM_20_2.0']
+                        df['bb_lower'] = bbands['BBL_20_2.0']
+                    elif indicator == 'atr_14':
+                        df['atr_14'] = ta.atr(df['high'], df['low'], df['close'], length=14)
+                    elif indicator == 'stoch_k':
+                        stoch = ta.stoch(df['high'], df['low'], df['close'], k=14, d=3, smooth_k=3)
+                        df['stoch_k'] = stoch['STOCHk_14_3_3']
+                        df['stoch_d'] = stoch['STOCHd_14_3_3']
+                    elif indicator == 'williams_r':
+                        df['williams_r'] = ta.willr(df['high'], df['low'], df['close'], length=14)
+                    elif indicator == 'cci_14':
+                        df['cci_14'] = ta.cci(df['high'], df['low'], df['close'], length=14)
+                    elif indicator == 'adx_14':
+                        df['adx_14'] = ta.adx(df['high'], df['low'], df['close'], length=14)['ADX_14']
+                    elif indicator == 'obv':
+                        df['obv'] = ta.obv(df['close'], df['volume'])
+                else:
+                    # Fallback implementations using pandas
+                    if indicator == 'sma_5':
+                        df['sma_5'] = df['close'].rolling(window=5).mean()
+                    elif indicator == 'sma_20':
+                        df['sma_20'] = df['close'].rolling(window=20).mean()
+                    elif indicator == 'sma_50':
+                        df['sma_50'] = df['close'].rolling(window=50).mean()
+                    elif indicator == 'ema_12':
+                        df['ema_12'] = df['close'].ewm(span=12).mean()
+                    elif indicator == 'ema_26':
+                        df['ema_26'] = df['close'].ewm(span=26).mean()
+                    elif indicator == 'rsi_14':
+                        df['rsi_14'] = self._calculate_rsi(df['close'], 14)
+                    elif indicator == 'macd':
+                        macd, signal = self._calculate_macd(df['close'])
+                        df['macd'] = macd
+                        df['macd_signal'] = signal
+                    elif indicator in ['bb_upper', 'bb_lower']:
+                        bb_upper, bb_middle, bb_lower = self._calculate_bollinger_bands(df['close'])
+                        df['bb_upper'] = bb_upper
+                        df['bb_middle'] = bb_middle
+                        df['bb_lower'] = bb_lower
+                    elif indicator == 'atr_14':
+                        df['atr_14'] = self._calculate_atr(df['high'], df['low'], df['close'], 14)
                     
             except Exception as e:
                 logger.warning(f"Failed to calculate indicator {indicator}: {e}")
@@ -118,7 +145,10 @@ class StateFeatureExtractor:
         # Add price-based features
         df['price_change'] = df['close'].pct_change()
         df['high_low_ratio'] = df['high'] / df['low']
-        df['volume_sma'] = ta.sma(df['volume'], length=20)
+        if HAS_PANDAS_TA:
+            df['volume_sma'] = ta.sma(df['volume'], length=20)
+        else:
+            df['volume_sma'] = df['volume'].rolling(window=20).mean()
         df['volume_ratio'] = df['volume'] / df['volume_sma']
         
         # Volatility features
@@ -126,6 +156,38 @@ class StateFeatureExtractor:
         df['price_position'] = (df['close'] - df['low']) / (df['high'] - df['low'])
         
         return df
+    
+    def _calculate_rsi(self, prices: pd.Series, window: int = 14) -> pd.Series:
+        """Calculate RSI using pandas fallback."""
+        delta = prices.diff()
+        gain = (delta.where(delta > 0, 0)).rolling(window=window).mean()
+        loss = (-delta.where(delta < 0, 0)).rolling(window=window).mean()
+        rs = gain / loss
+        return 100 - (100 / (1 + rs))
+    
+    def _calculate_macd(self, prices: pd.Series, fast: int = 12, slow: int = 26, signal: int = 9) -> tuple:
+        """Calculate MACD using pandas fallback."""
+        ema_fast = prices.ewm(span=fast).mean()
+        ema_slow = prices.ewm(span=slow).mean()
+        macd = ema_fast - ema_slow
+        signal_line = macd.ewm(span=signal).mean()
+        return macd, signal_line
+    
+    def _calculate_bollinger_bands(self, prices: pd.Series, window: int = 20, std_dev: int = 2) -> tuple:
+        """Calculate Bollinger Bands using pandas fallback."""
+        sma = prices.rolling(window=window).mean()
+        std = prices.rolling(window=window).std()
+        upper = sma + (std * std_dev)
+        lower = sma - (std * std_dev)
+        return upper, sma, lower
+    
+    def _calculate_atr(self, high: pd.Series, low: pd.Series, close: pd.Series, window: int = 14) -> pd.Series:
+        """Calculate ATR using pandas fallback."""
+        high_low = high - low
+        high_close = np.abs(high - close.shift())
+        low_close = np.abs(low - close.shift())
+        true_range = pd.concat([high_low, high_close, low_close], axis=1).max(axis=1)
+        return true_range.rolling(window=window).mean()
     
     def _add_time_features(self, data: pd.DataFrame) -> pd.DataFrame:
         """Add time-based features."""

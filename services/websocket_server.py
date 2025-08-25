@@ -209,7 +209,15 @@ class WebSocketBroadcaster:
                     'connected_clients': len(self.connected_clients),
                     'message_queue_size': len(self.message_queue),
                     'server_time': datetime.now().isoformat(),
-                    'redis_connected': self.redis_client is not None
+                    'redis_connected': self.redis_client is not None,
+                    'available_topics': [
+                        'trading_signals',
+                        'training_updates', 
+                        'trade_executions',
+                        'performance_updates',
+                        'backtest_updates',
+                        'system_alerts'
+                    ]
                 }
                 
                 await self.sio.emit('status_response', status, room=sid)
@@ -276,6 +284,21 @@ class WebSocketBroadcaster:
         )
         
         await self._broadcast_to_subscribers('performance_updates', message)
+    
+    async def broadcast_backtest_update(self, backtest_data: Dict[str, Any]) -> None:
+        """
+        Broadcast backtest progress update.
+        
+        Args:
+            backtest_data: Backtest progress information
+        """
+        message = WebSocketMessage(
+            type='backtest_update',
+            timestamp=datetime.now(),
+            data=backtest_data
+        )
+        
+        await self._broadcast_to_subscribers('backtest_updates', message)
     
     async def broadcast_system_alert(self, alert_data: Dict[str, Any]) -> None:
         """

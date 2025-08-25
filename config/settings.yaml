@@ -37,6 +37,15 @@ websocket:
   ping_interval: 25
   ping_timeout: 60
   max_connections: 1000
+  
+  # Topic configuration for backtest streaming
+  topics:
+    trading_signals: true
+    training_updates: true
+    trade_executions: true
+    performance_updates: true
+    backtest_updates: true
+    system_alerts: true
 
 # API Configuration
 api:

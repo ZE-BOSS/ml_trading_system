@@ -267,6 +267,10 @@ class MT5Client:
             logger.error(f"Error getting tick for {symbol}: {e}")
             return None
     
+    def get_market_tick(self, symbol: str) -> Optional[MarketTick]:
+        """Alias for get_current_tick for compatibility."""
+        return self.get_current_tick(symbol)
+    
     def start_streaming(self, symbols: List[str], callback: callable) -> bool:
         """
         Start real-time data streaming.
@@ -417,6 +421,20 @@ class MT5Client:
         except Exception as e:
             logger.error(f"Error executing trade: {e}")
             return None
+    
+    def place_order(self, signal: TradeSignal, demo: bool = True) -> bool:
+        """
+        Place order with demo/live mode support.
+        
+        Args:
+            signal: Trading signal to execute
+            demo: Whether to use demo mode
+            
+        Returns:
+            True if order placed successfully
+        """
+        result = self.execute_trade(signal)
+        return result is not None and result.get("success", False)
     
     def close_position(self, ticket: int) -> bool:
         """

@@ -394,10 +394,18 @@ class SignalGenerator:
             # Calculate ATR for volatility-based stops
             if 'atr_14' in market_data.columns:
                 atr = market_data['atr_14'].iloc[-1]
+                if pd.isna(atr) or atr <= 0:
+                    # Fallback to price-based calculation
+                    recent_prices = market_data['close'].tail(14)
+                    atr = recent_prices.std()
             else:
                 # Fallback to simple price-based calculation
                 recent_prices = market_data['close'].tail(14)
                 atr = recent_prices.std()
+            
+            # Ensure ATR is valid
+            if pd.isna(atr) or atr <= 0:
+                atr = entry_price * 0.01  # 1% fallback
             
             # Base stop and target distances
             stop_distance = atr * 2.0  # 2x ATR stop
@@ -413,6 +421,10 @@ class SignalGenerator:
             else:  # SELL
                 stop_loss = entry_price + stop_distance
                 take_profit = entry_price - take_distance
+            
+            # Ensure stops are reasonable (not negative prices)
+            stop_loss = max(stop_loss, entry_price * 0.01) if action == 'BUY' else stop_loss
+            take_profit = max(take_profit, entry_price * 0.01) if action == 'SELL' else take_profit
             
             return stop_loss, take_profit
             

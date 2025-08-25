@@ -642,12 +642,26 @@ async def main():
 
 
 if __name__ == "__main__":
-    # Handle import for PANDAS-TA
+    # Check for optional dependencies
+    missing_deps = []
     try:
         import pandas_ta
     except ImportError:
-        print("Warning: PANDAS-TA not installed. Technical indicators may not work properly.")
-        print("Install with: pip install PANDAS-TA")
+        missing_deps.append("pandas_ta")
+    
+    try:
+        import MetaTrader5
+    except ImportError:
+        missing_deps.append("MetaTrader5")
+    
+    if missing_deps:
+        print(f"Warning: Optional dependencies not installed: {', '.join(missing_deps)}")
+        print("Some features may not work properly. Install with:")
+        for dep in missing_deps:
+            if dep == "pandas_ta":
+                print("  pip install pandas_ta")
+            elif dep == "MetaTrader5":
+                print("  pip install MetaTrader5")
     
     # Run the main application
     asyncio.run(main())

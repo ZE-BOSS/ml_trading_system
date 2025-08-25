@@ -203,7 +203,9 @@ class PPOTradingAgent:
                 "relu": nn.ReLU,
                 "tanh": nn.Tanh,
                 "sigmoid": nn.Sigmoid,
-                "leaky_relu": nn.LeakyReLU
+                "leaky_relu": nn.LeakyReLU,
+                "swish": nn.SiLU,
+                "gelu": nn.GELU
             }
             return act_map.get(act.lower(), nn.ReLU)
         if isinstance(act, type) and issubclass(act, nn.Module):
@@ -557,6 +559,7 @@ class PPOTradingAgent:
             self.model = PPO.load(path, env=env, custom_objects={"policy_kwargs": policy_kwargs})
             # record policy kwargs used
             self._policy_kwargs_used = getattr(self.model, 'policy_kwargs', policy_kwargs)
+            self.env = env  # Store the environment for consistency
             if self._policy_kwargs_used:
                 self._policy_kwargs_serializable = self._serialize_policy_kwargs(self._policy_kwargs_used)
             logger.info(f"Model loaded from {path}")

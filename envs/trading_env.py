@@ -129,6 +129,12 @@ class TradingEnvironment(gym.Env):
             self.n_features = int(len(self.feature_names))
             self.obs_dim = int(self.lookback_window * self.n_features + self.portfolio_features_dim)
 
+        # Validate observation signature consistency
+        expected_obs_dim = self.lookback_window * self.n_features + self.portfolio_features_dim
+        if self.obs_dim != expected_obs_dim:
+            logger.warning(f"Observation dimension mismatch: config={self.obs_dim}, calculated={expected_obs_dim}")
+            self.obs_dim = expected_obs_dim
+
         # build action and observation spaces
         self._setup_spaces()
 
