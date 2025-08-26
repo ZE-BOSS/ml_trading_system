@@ -292,7 +292,15 @@ class SignalGenerator:
             # Combine features
             full_observation = np.concatenate([observation, portfolio_features])
 
-            expected_obs_dim = self.config.get('signature', {}).get('obs_dim')
+            # Check if we have a signature configuration
+            signature_config = self.config.get('environment', {}).get('signature', {})
+            expected_obs_dim = signature_config.get('obs_dim')
+            
+            if not expected_obs_dim:
+                # Calculate expected dimension from config
+                n_features = len(features_df.columns)
+                expected_obs_dim = lookback_window * n_features + 5  # +5 for portfolio features
+            
             obs_len = full_observation.size
             if expected_obs_dim:
                 if obs_len < expected_obs_dim:

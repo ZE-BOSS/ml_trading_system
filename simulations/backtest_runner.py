@@ -93,6 +93,8 @@ class BacktestRunner:
         self.signal_generator = SignalGenerator()
 
     def _ensure_datetime_index(df: pd.DataFrame) -> pd.DataFrame:
+    @staticmethod
+    def _ensure_datetime_index(df: pd.DataFrame) -> pd.DataFrame:
         if not isinstance(df.index, pd.DatetimeIndex):
             if 'timestamp' in df.columns:
                 df = df.copy()

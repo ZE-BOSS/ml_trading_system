@@ -313,6 +313,18 @@ class PPOTradingSystem:
         self.current_session_id = str(uuid.uuid4())
         
         try:
+            # Load observation signature from saved model
+            model_dir = os.path.dirname(model_path)
+            obs_config_path = os.path.join(model_dir, "obs_config.yaml")
+            expected_signature = None
+            
+            if os.path.exists(obs_config_path):
+                with open(obs_config_path, 'r') as f:
+                    expected_signature = yaml.safe_load(f)
+                logger.info(f"Loaded observation signature: {expected_signature}")
+            else:
+                logger.warning("No obs_config.yaml found, using default configuration")
+            
             # Get backtest data
             if start_date and end_date:
                 start_dt = datetime.fromisoformat(start_date)
@@ -323,14 +335,26 @@ class PPOTradingSystem:
                 start_dt = end_dt - timedelta(days=180)
             
             backtest_data = await self._get_or_download_data(symbol, start_dt, end_dt)
+            
+            if backtest_data.empty:
+                raise ValueError(f"No backtest data available for {symbol}")
 
-            env = TradingEnvironment(data=backtest_data, config_path="config/model_config.yaml")
+            # Create environment with expected signature for consistency
+            env = TradingEnvironment(
+                data=backtest_data, 
+                config_path="config/model_config.yaml",
+                expected_signature=expected_signature
+            )
             env = Monitor(env)
             env = DummyVecEnv([lambda: env])
 
-            # Load model
-            if not self.ppo_agent.load_model(model_path, env):
-                raise ValueError(f"Failed to load model from {model_path}")
+            # Load model with the environment
+            try:
+                self.ppo_agent.load_model(model_path, env)
+                logger.info(f"Model loaded successfully from {model_path}")
+            except Exception as e:
+                logger.error(f"Failed to load model: {e}")
+                raise ValueError(f"Failed to load model from {model_path}: {str(e)}")
             
             # Run backtest
             results = await self.backtest_runner.run_backtest(

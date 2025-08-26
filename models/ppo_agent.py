@@ -543,10 +543,30 @@ class PPOTradingAgent:
                 obs_sig_fn = getattr(underlying, "obs_signature", None)
                 if callable(obs_sig_fn):
                     current_sig = obs_sig_fn()
+                    logger.info(f"Expected signature: {expected_sig}")
+                    logger.info(f"Current signature: {current_sig}")
                     if int(current_sig.get("obs_dim", -1)) != int(expected_sig.get("obs_dim", -1)):
                         raise RuntimeError(
                             f"Saved model obs_dim={expected_sig.get('obs_dim')} does not match provided env obs_dim={current_sig.get('obs_dim')}. Create an environment with matching features/lookback or retrain the model."
                         )
+                    
+                    # Validate feature consistency
+                    expected_features = expected_sig.get("feature_names", [])
+                    current_features = current_sig.get("feature_names", [])
+                    if expected_features != current_features:
+                        logger.warning(f"Feature mismatch - Expected: {len(expected_features)}, Current: {len(current_features)}")
+                        logger.warning(f"Expected features: {expected_features}")
+                        logger.warning(f"Current features: {current_features}")
+                        
+                        # Check if it's just ordering or missing features
+                        missing_features = set(expected_features) - set(current_features)
+                        extra_features = set(current_features) - set(expected_features)
+                        
+                        if missing_features:
+                            raise RuntimeError(f"Missing features in current environment: {missing_features}")
+                        if extra_features:
+                            logger.warning(f"Extra features in current environment (will be ignored): {extra_features}")
+            
             self.vec_env = VecNormalize.load(vecnorm_path, env_vec)
             self.vec_env.training = False
             self.vec_env.norm_reward = False

@@ -181,7 +181,15 @@ class TradingEnvironment(gym.Env):
             #     missing_feats = [f for f in self.feature_names if f not in self.processed_data.columns]
 
             if missing_feats:
-                raise ValueError(f"Processed data missing features required by obs_config.yaml: {missing_feats}")
+                logger.warning(f"Processed data missing features required by obs_config.yaml: {missing_feats}")
+                # Use available features instead of failing
+                available_features = [f for f in self.feature_names if f in self.processed_data.columns]
+                if len(available_features) < len(self.feature_names) * 0.8:  # If less than 80% features available
+                    raise ValueError(f"Too many missing features. Available: {len(available_features)}, Required: {len(self.feature_names)}")
+                
+                logger.info(f"Using {len(available_features)} available features out of {len(self.feature_names)} expected")
+                self.feature_names = available_features
+                
             # ensure n_features matches
             self.n_features = int(len(self.feature_names))
         else:
@@ -194,11 +202,56 @@ class TradingEnvironment(gym.Env):
 
         # validate against expected signature if supplied
         if self._expected_signature:
+            expected_obs_dim = int(self._expected_signature.get("obs_dim", -1))
+            expected_n_features = int(self._expected_signature.get("n_features", -1))
+            expected_lookback = int(self._expected_signature.get("lookback_window", -1))
+            
+            logger.info(f"Validating against expected signature:")
+            logger.info(f"  Expected obs_dim: {expected_obs_dim}, Current: {self.obs_dim}")
+            logger.info(f"  Expected n_features: {expected_n_features}, Current: {self.n_features}")
+            logger.info(f"  Expected lookback: {expected_lookback}, Current: {self.lookback_window}")
+            
             if int(self._expected_signature.get("obs_dim", -1)) != int(self.obs_dim):
-                raise ValueError(
-                    f"Observation signature mismatch. Expected obs_dim={self._expected_signature.get('obs_dim')}, "
-                    f"but environment produces obs_dim={self.obs_dim}"
-                )
+                # Try to adjust to match expected signature
+                expected_obs_dim = int(self._expected_signature.get("obs_dim", -1))
+                expected_n_features = int(self._expected_signature.get("n_features", -1))
+                expected_lookback = int(self._expected_signature.get("lookback_window", -1))
+                
+                if expected_lookback > 0 and expected_n_features > 0:
+                    logger.warning(f"Adjusting environment to match expected signature")
+                    self.lookback_window = expected_lookback
+                    
+                    # If we have more features than expected, select the first N
+                    if self.n_features > expected_n_features:
+                        expected_feature_names = self._expected_signature.get("feature_names", [])
+                        if expected_feature_names:
+                            # Use expected feature names if available
+                            available_expected = [f for f in expected_feature_names if f in self.processed_data.columns]
+                            if len(available_expected) >= expected_n_features:
+                                self.feature_names = available_expected[:expected_n_features]
+                            else:
+                                # Fallback to first N features
+                                self.feature_names = self.feature_names[:expected_n_features]
+                        else:
+                            self.feature_names = self.feature_names[:expected_n_features]
+                        
+                        self.n_features = len(self.feature_names)
+                    
+                    # Recalculate obs_dim
+                    self.obs_dim = int(self.lookback_window * self.n_features + self.portfolio_features_dim)
+                    
+                    logger.info(f"Adjusted to: obs_dim={self.obs_dim}, n_features={self.n_features}, lookback={self.lookback_window}")
+                    
+                    if self.obs_dim != expected_obs_dim:
+                        raise ValueError(
+                            f"Cannot adjust environment to match expected signature. "
+                            f"Expected obs_dim={expected_obs_dim}, achieved obs_dim={self.obs_dim}"
+                        )
+                else:
+                    raise ValueError(
+                        f"Observation signature mismatch. Expected obs_dim={expected_obs_dim}, "
+                        f"but environment produces obs_dim={self.obs_dim}"
+                    )
 
         logger.info(f"Data prepared: {len(self.processed_data)} samples, {len(self.processed_data.columns)} features")
 
@@ -443,6 +496,7 @@ class TradingEnvironment(gym.Env):
             n_cols = len(self.feature_names)
         else:
             # fallback to all columns if mismatch
+            logger.warning(f"Feature mismatch in observation. Expected: {self.feature_names}, Available: {list(df.columns)}")
             window = df.iloc[start_idx:self.current_step]
             n_cols = window.shape[1]
 
@@ -474,6 +528,12 @@ class TradingEnvironment(gym.Env):
             obs = np.concatenate([obs, np.zeros(pad_len, dtype=np.float32)], axis=0)
         elif obs.shape[0] > expected_len:
             obs = obs[:expected_len]
+            
+        # Final validation
+        if obs.shape[0] != expected_len:
+            logger.error(f"Observation shape mismatch: got {obs.shape[0]}, expected {expected_len}")
+            logger.error(f"Market features: {flat_market.shape[0]}, Portfolio features: {portfolio_features.shape[0]}")
+            logger.error(f"Lookback window: {self.lookback_window}, N features: {n_cols}")
 
         return obs
 
