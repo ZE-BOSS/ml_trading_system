@@ -175,6 +175,11 @@ class TradingEnvironment(gym.Env):
         # if obs_config provided feature_names, ensure processed_data contains them
         if self.feature_names:
             missing_feats = [f for f in self.feature_names if f not in self.processed_data.columns]
+
+            # if missing_feats:
+            #     self.processed_data = self.feature_extractor._add_time_features(self.processed_data)
+            #     missing_feats = [f for f in self.feature_names if f not in self.processed_data.columns]
+
             if missing_feats:
                 raise ValueError(f"Processed data missing features required by obs_config.yaml: {missing_feats}")
             # ensure n_features matches

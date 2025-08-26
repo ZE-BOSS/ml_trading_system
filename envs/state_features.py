@@ -67,6 +67,8 @@ class StateFeatureExtractor:
         features_df = self._select_features(features_df)
         
         logger.info(f"Feature extraction complete. Shape: {features_df.shape}")
+        
+        logger.debug(f"Feature Data: {features_df}")
         return features_df
     
     def _add_technical_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -75,7 +77,7 @@ class StateFeatureExtractor:
         
         for indicator in indicators:
             try:
-                if HAS_PANDAS_TA:
+                if ta:
                     # Use pandas_ta if available
                     if indicator == 'sma_5':
                         df['sma_5'] = ta.sma(df['close'], length=5)
@@ -145,7 +147,7 @@ class StateFeatureExtractor:
         # Add price-based features
         df['price_change'] = df['close'].pct_change()
         df['high_low_ratio'] = df['high'] / df['low']
-        if HAS_PANDAS_TA:
+        if ta:
             df['volume_sma'] = ta.sma(df['volume'], length=20)
         else:
             df['volume_sma'] = df['volume'].rolling(window=20).mean()
@@ -197,12 +199,29 @@ class StateFeatureExtractor:
         
         # Ensure index is datetime
         if not isinstance(df.index, pd.DatetimeIndex):
-            if 'timestamp' in df.columns:
-                df.index = pd.to_datetime(df['timestamp'])
-            else:
-                logger.warning("No timestamp column found, using integer index")
-                return df
-        
+            # common timestamp column names to try
+            ts_candidates = [c for c in ('timestamp', 'time', 'date', 'datetime') if c in df.columns]
+            coerced = False
+            for col in ts_candidates:
+                try:
+                    df.index = pd.to_datetime(df[col])
+                    coerced = True
+                    break
+                except Exception:
+                    continue
+
+            if not coerced:
+                # Try to coerce the existing index
+                try:
+                    df.index = pd.to_datetime(df.index)
+                    coerced = True
+                except Exception:
+                    coerced = False
+
+            if not coerced:
+                logger.warning("Could not coerce a DatetimeIndex from data. "
+                            "Time features will be omitted. Provide a DatetimeIndex or a 'timestamp' column.")
+                
         for feature in time_features:
             try:
                 if feature == 'hour_of_day':
@@ -290,6 +309,7 @@ class StateFeatureExtractor:
             existing_features = list(data.select_dtypes(include=[np.number]).columns)
         
         logger.info(f"Selected {len(existing_features)} features: {existing_features}")
+        logger.debug(f"All Selected Features: {all_features}")
         return data[existing_features]
     
     def get_feature_importance(self, model, feature_names: List[str]) -> Dict[str, float]:

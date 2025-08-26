@@ -102,7 +102,7 @@ class TradingCallback(BaseCallback):
                     except Exception as e:
                         logger.warning(f"Could not save best model automatically: {e}")
 
-    def _broadcast_training_update(self, info: Dict) -> None:
+    async def _broadcast_training_update(self, info: Dict) -> None:
         try:
             update_data = {
                 'type': 'training_update',
@@ -114,7 +114,7 @@ class TradingCallback(BaseCallback):
                 'total_trades': info.get('total_trades', 0)
             }
             if self.websocket_broadcaster:
-                self.websocket_broadcaster.broadcast_training_update(update_data)
+                await self.websocket_broadcaster.broadcast_training_update(update_data)
         except Exception as e:
             logger.warning(f"Failed to broadcast training update: {e}")
 

@@ -291,6 +291,15 @@ class SignalGenerator:
             
             # Combine features
             full_observation = np.concatenate([observation, portfolio_features])
+
+            expected_obs_dim = self.config.get('signature', {}).get('obs_dim')
+            obs_len = full_observation.size
+            if expected_obs_dim:
+                if obs_len < expected_obs_dim:
+                    pad = np.zeros(expected_obs_dim - obs_len, dtype=np.float32)
+                    full_observation = np.concatenate([full_observation, pad])
+                elif obs_len > expected_obs_dim:
+                    full_observation = full_observation[:expected_obs_dim]
             
             return full_observation.reshape(1, -1)  # Batch dimension
             

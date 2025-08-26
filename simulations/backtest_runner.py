@@ -80,7 +80,7 @@ class BacktestRunner:
         self.data_manager = data_manager
         self.websocket_broadcaster = websocket_broadcaster
         self.config = {
-            "starting_balance": 10_000.0,  # virtual account for metrics only
+            "starting_balance": 10000.0,  # virtual account for metrics only
             "update_every": 200,           # how many bars between WS updates
             "allow_reverse": True,         # close & flip when opposite signal
             "commission_rate": 0.0001,     # 0.01% commission per trade
@@ -91,6 +91,19 @@ class BacktestRunner:
 
         # Reuse production signal generator
         self.signal_generator = SignalGenerator()
+
+    def _ensure_datetime_index(df: pd.DataFrame) -> pd.DataFrame:
+        if not isinstance(df.index, pd.DatetimeIndex):
+            if 'timestamp' in df.columns:
+                df = df.copy()
+                df['timestamp'] = pd.to_datetime(df['timestamp'])
+                df.set_index('timestamp', inplace=True)
+            else:
+                try:
+                    df.index = pd.to_datetime(df.index)
+                except Exception:
+                    raise ValueError("Backtest `data` must have a DatetimeIndex or a 'timestamp' column.")
+        return df
 
     async def run_backtest(
         self,
@@ -122,6 +135,8 @@ class BacktestRunner:
         if data is None or data.empty:
             logger.warning("Backtest received empty data frame; aborting.")
             return {"success": False, "error": "empty_data"}
+        else:
+            data = self._ensure_datetime_index(data)
 
         # Attach the trained model to the signal generator
         self.signal_generator.ppo_agent.model = model
