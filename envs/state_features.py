@@ -38,6 +38,14 @@ class StateFeatureExtractor:
         self.feature_stats = {}
         self.is_fitted = False
         
+        # Track minimum data requirements for each indicator
+        self.min_periods = {
+            'sma_5': 5, 'sma_20': 20, 'sma_50': 50,
+            'ema_12': 12, 'ema_26': 26,
+            'rsi_14': 14, 'macd': 26, 'atr_14': 14,
+            'bb_upper': 20, 'bb_lower': 20
+        }
+        
         logger.info("State feature extractor initialized")
     
     def extract_features(self, data: pd.DataFrame) -> pd.DataFrame:
@@ -52,13 +60,21 @@ class StateFeatureExtractor:
         """
         logger.info("Extracting features from market data")
         
+        # Validate input data first
+        if not self._validate_input_data(data):
+            logger.error("Invalid input data for feature extraction")
+            return pd.DataFrame()
+        
         features_df = data.copy()
         
-        # Add technical indicators
+        # Add technical indicators with NaN handling
         features_df = self._add_technical_indicators(features_df)
         
         # Add time features
         features_df = self._add_time_features(features_df)
+        
+        # Handle any remaining NaN values
+        features_df = self._handle_nan_values(features_df)
         
         # Normalize features
         features_df = self._normalize_features(features_df)
@@ -67,16 +83,38 @@ class StateFeatureExtractor:
         features_df = self._select_features(features_df)
         
         logger.info(f"Feature extraction complete. Shape: {features_df.shape}")
-        
-        logger.debug(f"Feature Data: {features_df}")
         return features_df
     
+    def _validate_input_data(self, data: pd.DataFrame) -> bool:
+        """Validate input data before feature extraction."""
+        required_cols = ['open', 'high', 'low', 'close', 'volume']
+        for col in required_cols:
+            if col not in data.columns:
+                logger.error(f"Missing required column: {col}")
+                return False
+        
+        # Check for NaN in essential columns
+        essential_nan = data[required_cols].isnull().sum().sum()
+        if essential_nan > 0:
+            logger.warning(f"Found {essential_nan} NaN values in essential columns")
+            # Fill essential NaN with forward then backward fill
+            data[required_cols] = data[required_cols].ffill().bfill()
+        
+        return True
+    
     def _add_technical_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Add technical indicators to the dataset."""
+        """Add technical indicators to the dataset with robust NaN handling."""
         indicators = self.feature_config.get('technical_indicators', [])
+        n_rows = len(df)
         
         for indicator in indicators:
             try:
+                # Skip indicators that require more data than available
+                min_periods = self.min_periods.get(indicator, 1)
+                if n_rows < min_periods:
+                    logger.warning(f"Skipping {indicator}: {n_rows} < {min_periods}")
+                    continue
+                
                 if ta:
                     # Use pandas_ta if available
                     if indicator == 'sma_5':
@@ -95,67 +133,119 @@ class StateFeatureExtractor:
                         macd_df = ta.macd(df['close'], fast=12, slow=26, signal=9)
                         df['macd'] = macd_df['MACD_12_26_9']
                         df['macd_signal'] = macd_df['MACDs_12_26_9']
-                        df['macd_hist'] = macd_df['MACDh_12_26_9']
                     elif indicator in ['bb_upper', 'bb_lower']:
                         bbands = ta.bbands(df['close'], length=20, std=2)
                         df['bb_upper'] = bbands['BBU_20_2.0']
-                        df['bb_middle'] = bbands['BBM_20_2.0']
                         df['bb_lower'] = bbands['BBL_20_2.0']
                     elif indicator == 'atr_14':
                         df['atr_14'] = ta.atr(df['high'], df['low'], df['close'], length=14)
-                    elif indicator == 'stoch_k':
-                        stoch = ta.stoch(df['high'], df['low'], df['close'], k=14, d=3, smooth_k=3)
-                        df['stoch_k'] = stoch['STOCHk_14_3_3']
-                        df['stoch_d'] = stoch['STOCHd_14_3_3']
-                    elif indicator == 'williams_r':
-                        df['williams_r'] = ta.willr(df['high'], df['low'], df['close'], length=14)
-                    elif indicator == 'cci_14':
-                        df['cci_14'] = ta.cci(df['high'], df['low'], df['close'], length=14)
-                    elif indicator == 'adx_14':
-                        df['adx_14'] = ta.adx(df['high'], df['low'], df['close'], length=14)['ADX_14']
-                    elif indicator == 'obv':
-                        df['obv'] = ta.obv(df['close'], df['volume'])
-                else:
-                    # Fallback implementations using pandas
-                    if indicator == 'sma_5':
-                        df['sma_5'] = df['close'].rolling(window=5).mean()
-                    elif indicator == 'sma_20':
-                        df['sma_20'] = df['close'].rolling(window=20).mean()
-                    elif indicator == 'sma_50':
-                        df['sma_50'] = df['close'].rolling(window=50).mean()
-                    elif indicator == 'ema_12':
-                        df['ema_12'] = df['close'].ewm(span=12).mean()
-                    elif indicator == 'ema_26':
-                        df['ema_26'] = df['close'].ewm(span=26).mean()
-                    elif indicator == 'rsi_14':
-                        df['rsi_14'] = self._calculate_rsi(df['close'], 14)
-                    elif indicator == 'macd':
-                        macd, signal = self._calculate_macd(df['close'])
-                        df['macd'] = macd
-                        df['macd_signal'] = signal
-                    elif indicator in ['bb_upper', 'bb_lower']:
-                        bb_upper, bb_middle, bb_lower = self._calculate_bollinger_bands(df['close'])
-                        df['bb_upper'] = bb_upper
-                        df['bb_middle'] = bb_middle
-                        df['bb_lower'] = bb_lower
-                    elif indicator == 'atr_14':
-                        df['atr_14'] = self._calculate_atr(df['high'], df['low'], df['close'], 14)
-                    
             except Exception as e:
                 logger.warning(f"Failed to calculate indicator {indicator}: {e}")
         
-        # Add price-based features
+        # Add price-based features with robust calculation
         df['price_change'] = df['close'].pct_change()
-        df['high_low_ratio'] = df['high'] / df['low']
-        if ta:
-            df['volume_sma'] = ta.sma(df['volume'], length=20)
-        else:
-            df['volume_sma'] = df['volume'].rolling(window=20).mean()
-        df['volume_ratio'] = df['volume'] / df['volume_sma']
+        
+        # Handle division by zero in high_low_ratio
+        high_low_ratio = np.where(
+            df['low'] != 0, 
+            df['high'] / df['low'], 
+            np.where(df['high'] != 0, 1.0, 1.0)
+        )
+        df['high_low_ratio'] = high_low_ratio
+        
+        # Volume features with robust handling
+        df['volume_sma'] = ta.sma(df['volume'], length=20) if ta else df['volume'].rolling(window=20).mean()
+        
+        # Handle division by zero in volume_ratio
+        volume_ratio = np.where(
+            (df['volume_sma'] != 0) & (~np.isclose(df['volume_sma'], 0)),
+            df['volume'] / df['volume_sma'],
+            np.where(df['volume'] != 0, 1.0, 0.0)  # Default to 1 if volume is non-zero, else 0
+        )
+        df['volume_ratio'] = volume_ratio
         
         # Volatility features
-        df['volatility'] = df['price_change'].rolling(window=20).std()
-        df['price_position'] = (df['close'] - df['low']) / (df['high'] - df['low'])
+        df['volatility'] = df['price_change'].rolling(window=20, min_periods=1).std()
+        
+        # Handle division by zero in price_position
+        price_range = df['high'] - df['low']
+        price_position = np.where(
+            price_range != 0,
+            (df['close'] - df['low']) / price_range,
+            np.where(df['close'] != 0, 0.5, 0.5)
+        )
+        df['price_position'] = price_position
+        
+        return df
+    
+    def _handle_nan_values(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Handle NaN values in the feature dataframe."""
+        # Fill NaN values with appropriate methods
+        for col in df.columns:
+            if df[col].isnull().any():
+                # For price-based columns, use forward/backward fill
+                if col in ['open', 'high', 'low', 'close', 'volume']:
+                    df[col] = df[col].ffill().bfill()
+                # For technical indicators, use the mean of the column
+                else:
+                    col_mean = df[col].mean()
+                    if not pd.isna(col_mean):
+                        df[col] = df[col].fillna(col_mean)
+                    else:
+                        # If mean is also NaN, use a default value
+                        df[col] = df[col].fillna(0)
+        
+        # Check for infinite values
+        inf_mask = np.isinf(df.values)
+        if np.any(inf_mask):
+            logger.warning(f"Found {inf_mask.sum()} infinite values in features")
+            df = df.replace([np.inf, -np.inf], np.nan)
+            df = df.ffill().bfill().fillna(0)
+        
+        return df
+    
+    def _normalize_features(self, data: pd.DataFrame) -> pd.DataFrame:
+        """Normalize features using z-score normalization with robust handling."""
+        df = data.copy()
+        
+        # Features that should not be normalized (already in good range)
+        skip_normalization = ['is_weekend', 'is_month_end', 'is_quarter_end', 
+                            'hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
+        
+        # Features that should be normalized
+        normalize_features = [col for col in df.select_dtypes(include=[np.number]).columns 
+                            if col not in skip_normalization]
+        
+        if not self.is_fitted:
+            # Calculate statistics on first run
+            self.feature_stats = {}
+            for feature in normalize_features:
+                if feature in df.columns:
+                    values = df[feature].dropna()
+                    if len(values) > 0:
+                        # Handle cases where std is zero or very small
+                        std = values.std()
+                        if std < 1e-8:  # Very small standard deviation
+                            std = 1.0  # Avoid division by zero
+                        
+                        self.feature_stats[feature] = {
+                            'mean': values.mean(),
+                            'std': std
+                        }
+                    else:
+                        # If no valid values, use defaults
+                        self.feature_stats[feature] = {'mean': 0, 'std': 1.0}
+            self.is_fitted = True
+            logger.info(f"Feature normalization parameters fitted for {len(self.feature_stats)} features")
+        
+        # Apply normalization
+        for feature, stats in self.feature_stats.items():
+            if feature in df.columns:
+                # Handle cases where feature values are constant
+                if stats['std'] < 1e-8:
+                    df[feature] = 0  # Set to zero if no variation
+                else:
+                    df[feature] = (df[feature] - stats['mean']) / stats['std']
         
         return df
     
@@ -250,38 +340,6 @@ class StateFeatureExtractor:
         if 'day_of_week' in df.columns:
             df['dow_sin'] = np.sin(2 * np.pi * df['day_of_week'] / 7)
             df['dow_cos'] = np.cos(2 * np.pi * df['day_of_week'] / 7)
-        
-        return df
-    
-    def _normalize_features(self, data: pd.DataFrame) -> pd.DataFrame:
-        """Normalize features using z-score normalization."""
-        df = data.copy()
-        
-        # Features that should not be normalized (already in good range)
-        skip_normalization = ['is_weekend', 'is_month_end', 'is_quarter_end', 'hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
-        
-        # Features that should be normalized
-        normalize_features = [col for col in df.select_dtypes(include=[np.number]).columns 
-                            if col not in skip_normalization]
-        
-        if not self.is_fitted:
-            # Calculate statistics on first run
-            self.feature_stats = {}
-            for feature in normalize_features:
-                if feature in df.columns:
-                    values = df[feature].dropna()
-                    if len(values) > 0:
-                        self.feature_stats[feature] = {
-                            'mean': values.mean(),
-                            'std': values.std() if values.std() > 0 else 1.0
-                        }
-            self.is_fitted = True
-            logger.info(f"Feature normalization parameters fitted for {len(self.feature_stats)} features")
-        
-        # Apply normalization
-        for feature, stats in self.feature_stats.items():
-            if feature in df.columns:
-                df[feature] = (df[feature] - stats['mean']) / stats['std']
         
         return df
     

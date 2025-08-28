@@ -36,6 +36,38 @@ The PPO Trading System is a comprehensive reinforcement learning-based trading p
   - Performance evaluation and validation
 - **Dependencies**: Stable-Baselines3, PyTorch, Gymnasium
 
+
+## Project Structure
+
+```
+ppo-trading-system/
+├── config/                 # Configuration files
+│   ├── settings.yaml       # Main application settings
+│   ├── broker_config.yaml  # MT5 broker settings
+│   └── model_config.yaml   # PPO model configuration
+├── envs/                   # Trading environment implementation
+│   ├── trading_env.py      # Main Gymnasium environment
+│   ├── state_features.py   # Feature extraction
+│   └── reward_functions.py # Reward calculation
+├── models/                 # ML model implementations
+│   ├── ppo_agent.py        # PPO agent implementation
+│   └── saved_models/       # Trained model storage
+├── services/               # External service integrations
+│   ├── mt5_client.py       # MetaTrader 5 client
+│   ├── websocket_server.py # WebSocket broadcasting
+│   └── signal_generator.py # Trading signal generation
+├── backend/                # Backend services
+│   ├── api.py              # REST API server
+│   └── data_manager.py     # Database operations
+├── simulations/            # Backtesting and simulation
+│   ├── backtest_runner.py  # Backtesting engine
+│   └── live_simulation.py  # Live trading simulation
+├── tests/                  # Test suite
+├── docs/                   # Documentation
+├── logs/                   # Application logs
+└── main.py                 # Main entry point
+```
+
 ### 2. Trading Environment (`envs/trading_env.py`)
 - **Purpose**: Gymnasium-compatible environment for training the PPO agent
 - **Key Features**:

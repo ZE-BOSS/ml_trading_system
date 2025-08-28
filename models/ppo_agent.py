@@ -435,6 +435,12 @@ class PPOTradingAgent:
     def predict(self, observation: np.ndarray, deterministic: bool = True) -> Tuple[np.ndarray, Optional[np.ndarray]]:
         if self.model is None:
             raise ValueError("Model not loaded. Call create_model() or train() first.")
+
+        # Check for NaN in input
+        if np.any(np.isnan(observation)):
+            logger.warning("NaN values in observation input")
+            observation = np.nan_to_num(observation)
+        
         action, _ = self.model.predict(observation, deterministic=deterministic)
         return action, None
 

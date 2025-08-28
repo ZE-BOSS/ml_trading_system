@@ -24,6 +24,7 @@ from dataclasses import dataclass
 import uuid
 from loguru import logger
 import yaml
+import torch
 
 from models.ppo_agent import PPOTradingAgent
 from services.mt5_client import TradeSignal, MarketTick
@@ -270,51 +271,75 @@ class SignalGenerator:
         return True
     
     def _prepare_features(self, market_data: pd.DataFrame) -> Optional[np.ndarray]:
-        """Prepare features for model prediction."""
+        """Prepare features for model prediction with enhanced NaN handling."""
         try:
-            # Extract features using the feature extractor
+            # Extract features
             features_df = self.feature_extractor.extract_features(market_data)
             
-            if len(features_df) < self.config['environment']['lookback_window']:
+            # Enhanced NaN detection and logging
+            nan_count = features_df.isnull().sum().sum()
+            if nan_count > 0:
+                logger.warning(f"Found {nan_count} NaN values in features before processing")
+                # Log which columns have NaN values
+                nan_columns = features_df.columns[features_df.isnull().any()].tolist()
+                logger.warning(f"Columns with NaN values: {nan_columns}")
+                
+                # Fill NaN values with appropriate methods
+                for col in features_df.columns:
+                    if features_df[col].isnull().any():
+                        # Use forward fill, then backward fill for time series data
+                        features_df[col] = features_df[col].fillna(method='ffill').fillna(method='bfill')
+                        # If still NaN, fill with mean
+                        if features_df[col].isnull().any():
+                            features_df[col] = features_df[col].fillna(features_df[col].mean())
+            
+            # Check for infinite values
+            inf_count = np.isinf(features_df.values).sum()
+            if inf_count > 0:
+                logger.warning(f"Found {inf_count} infinite values in features")
+                features_df = features_df.replace([np.inf, -np.inf], np.nan)
+                features_df = features_df.fillna(method='ffill').fillna(method='bfill')
+            
+            # Normalize features
+            features_normalized = self.feature_extractor._normalize_features(features_df)
+            
+            # Check again after normalization
+            if np.any(np.isnan(features_normalized.values)) or np.any(np.isinf(features_normalized.values)):
+                logger.error("NaN or Inf values still present after normalization")
+                return None
+            
+            # Rest of the feature preparation logic
+            lookback_window = self.config['environment']['lookback_window']
+            if len(features_normalized) < lookback_window:
                 logger.warning("Insufficient data for feature extraction")
                 return None
             
-            # Get the latest observation for prediction
-            lookback_window = self.config['environment']['lookback_window']
-            recent_features = features_df.iloc[-lookback_window:].values
-            
-            # Flatten for model input
+            recent_features = features_normalized.iloc[-lookback_window:].values
             observation = recent_features.flatten()
             
-            # Add portfolio features (assuming neutral state for signal generation)
-            portfolio_features = np.array([1.0, 0.0, 0.0, 0.0, 0.0])  # [balance_norm, position, unrealized_pnl, trades, drawdown]
-            
-            # Combine features
+            # Add portfolio features
+            portfolio_features = np.array([1.0, 0.0, 0.0, 0.0, 0.0])
             full_observation = np.concatenate([observation, portfolio_features])
-
-            # Check if we have a signature configuration
-            signature_config = self.config.get('environment', {}).get('signature', {})
-            expected_obs_dim = signature_config.get('obs_dim')
             
-            if not expected_obs_dim:
-                # Calculate expected dimension from config
-                n_features = len(features_df.columns)
-                expected_obs_dim = lookback_window * n_features + 5  # +5 for portfolio features
+            # Check final observation for issues
+            if np.any(np.isnan(full_observation)) or np.any(np.isinf(full_observation)):
+                logger.error("Final observation contains NaN or Inf values")
+                return None
             
-            obs_len = full_observation.size
-            if expected_obs_dim:
-                if obs_len < expected_obs_dim:
-                    pad = np.zeros(expected_obs_dim - obs_len, dtype=np.float32)
-                    full_observation = np.concatenate([full_observation, pad])
-                elif obs_len > expected_obs_dim:
-                    full_observation = full_observation[:expected_obs_dim]
+            # Check if values are within reasonable range
+            if np.any(np.abs(full_observation) > 100):
+                logger.warning(f"Observation values are too large: min={full_observation.min()}, max={full_observation.max()}")
+                # Clip extreme values to prevent model issues
+                full_observation = np.clip(full_observation, -10, 10)
             
-            return full_observation.reshape(1, -1)  # Batch dimension
+            logger.info(f"Observation range: [{full_observation.min():.4f}, {full_observation.max():.4f}]")
+            
+            return full_observation.reshape(1, -1)
             
         except Exception as e:
             logger.error(f"Error preparing features: {e}")
             return None
-    
+        
     def _get_model_prediction(self, features: np.ndarray) -> Tuple[Optional[str], float]:
         """Get model prediction and confidence."""
         try:
@@ -342,19 +367,73 @@ class SignalGenerator:
     def _calculate_action_confidence(self, features: np.ndarray, action_idx: int) -> float:
         """Calculate confidence score for the predicted action."""
         try:
-            # Simple confidence calculation - can be enhanced with actual model uncertainty
-            # For now, return a base confidence that could be adjusted based on market conditions
-            base_confidence = 0.7
+            # Try to get the actual action probabilities from the model
+            if self.ppo_agent.model is not None:
+                # Get the model's policy
+                policy = self.ppo_agent.model.policy
+                
+                # Convert features to tensor with the correct data type
+                obs_tensor = torch.as_tensor(features, dtype=torch.float32)
+                
+                # Move to the same device as the policy
+                device = next(policy.parameters()).device
+                obs_tensor = obs_tensor.to(device)
+                
+                # Get action distribution
+                with torch.no_grad():
+                    latent_pi, _, _ = policy.forward(obs_tensor)
+                    distribution = policy._get_action_dist_from_latent(latent_pi)
+                    
+                    # Get probabilities for all actions
+                    if hasattr(distribution, 'distribution'):
+                        probs = distribution.distribution.probs.cpu().numpy()
+                        
+                        # Use the probability of the selected action as confidence
+                        action_prob = probs[0, action_idx]
+                        
+                        # Base confidence on the action probability
+                        base_confidence = float(action_prob)
+                    else:
+                        # Fallback if we can't get probabilities
+                        base_confidence = 0.7
+            else:
+                base_confidence = 0.7
             
-            # Adjust based on recent market volatility, trend strength, etc.
-            # This is a placeholder - implement actual confidence calculation
+            # Adjust confidence based on market volatility (lower volatility = higher confidence)
+            # Assuming volatility is the 26th feature (index 25)
+            volatility = abs(features[0, 25]) if features.shape[1] > 25 else 0
+            volatility_factor = 1.0 / (1.0 + volatility)
             
-            return np.clip(base_confidence, 0.0, 1.0)
+            # Adjust confidence based on trend strength (stronger trend = higher confidence for trend-following actions)
+            # Assuming price_change is the 23rd feature (index 22)
+            trend_strength = abs(features[0, 22]) if features.shape[1] > 22 else 0
+            trend_factor = 1.0 + (0.5 * trend_strength)  # Up to 50% boost for strong trends
+            
+            # Combine factors
+            confidence = base_confidence * volatility_factor * trend_factor
+            
+            # Ensure confidence is within reasonable bounds
+            confidence = np.clip(confidence, 0.1, 0.95)
+            
+            logger.debug(f"Confidence calculation: base={base_confidence:.3f}, "
+                        f"vol_factor={volatility_factor:.3f}, trend_factor={trend_factor:.3f}, "
+                        f"final={confidence:.3f}")
+            
+            return confidence
             
         except Exception as e:
             logger.error(f"Error calculating confidence: {e}")
-            return 0.5
-    
+            # Fallback confidence calculation based on observation quality
+            try:
+                # Check if observation values are reasonable
+                obs_range = np.max(features) - np.min(features)
+                if obs_range > 100:  # Very large range indicates issues
+                    return 0.3  # Low confidence for problematic observations
+                else:
+                    return 0.7  # Medium confidence as fallback
+            except:
+                return 0.5  # Default fallback
+            
     def _calculate_position_size(self, 
                                 symbol: str,
                                 confidence: float,
